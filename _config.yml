@@ -1,0 +1,18 @@
+name:           Programmer Tips
+highlighter:    pygments
+source:         .
+destination:    ./_gh_pages
+markdown:       kramdown
+exclude:        ['README.md', 'node_modules', '*.less']
+url:            http://programer.tips
+paginate:       2
+#paginate:      5
+paginate_path:  /page/:num
+encoding:       UTF-8
+permalink:      /:title/
+timezone:       Asia/Ho_Chi_Minh
+
+# Custom variables
+google_analytics:
+google_site_verification:
+disqus:
