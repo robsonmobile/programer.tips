@@ -1,2 +1,0 @@
-programer.tips
-==============
