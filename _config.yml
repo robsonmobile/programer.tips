@@ -1,4 +1,4 @@
-name:           Programmer Tips
+name:           Programmer tips
 highlighter:    pygments
 source:         .
 destination:    ./_gh_pages
@@ -13,6 +13,6 @@ permalink:      /:title/
 timezone:       Asia/Ho_Chi_Minh
 
 # Custom variables
-google_analytics:
+google_analytics:         UA-44786951-3
 google_site_verification:
-disqus:
+disqus:                   programertips
