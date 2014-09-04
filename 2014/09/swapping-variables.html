@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>
     
-        Programmer tips
+        Swapping variables &middot; Programmer tips
     
     </title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
@@ -72,7 +72,35 @@
     </header>
 
     <div class="pt-container">
-        
+        <div class="pt-post">
+    <h2 class="pt-post-title">Swapping variables</h2>
+    <p class="pt-author-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
+    <div class="pt-post-content">
+        <p>Like other programming languages, when swapping two variables, we often use a temporary one:</p>
+
+<pre><code>var a = 'programmer', b = 'tips', temp;
+temp = a;
+a = b;
+b = temp;</code></pre>
+
+<p>But you can do it without using temporary variable as:</p>
+
+<pre><code>var a = 'programmer', b = 'tips';
+b = [a, a = b][0];
+console.log(a, b);  // --> tips programmer</code></pre>
+
+<h3>Notes</h3>
+
+<p>ECMAScript 6 provides a shorter and more easy to understand way:</p>
+
+<pre><code>[a, b] = [b, a];</code></pre>
+
+<p>To swap two numbers, we can do:</p>
+<pre><code>var a = 6, b = 9;
+a = b + (b=a, 0);
+console.log(a, b);  // --> 9 6</code></pre>
+    </div>
+</div>
     </div>
 
     <div class="pt-footer">
