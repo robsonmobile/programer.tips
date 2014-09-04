@@ -1,18 +1,23 @@
 name:           Programmer tips
 highlighter:    pygments
+
 source:         .
 destination:    ./_gh_pages
 markdown:       kramdown
+markdown_ext:   'markdown,mkdown,mkdn,mkd,md'
 exclude:        ['README.md', 'node_modules', '*.less']
 url:            http://programer.tips
+
 paginate:       2
 #paginate:      5
 paginate_path:  /page/:num
 encoding:       UTF-8
-permalink:      /:title/
+relative_permalinks:  false
+permalink:      /:year/:month/:title.html
 timezone:       Asia/Ho_Chi_Minh
 
 # Custom variables
-google_analytics:         UA-44786951-3
-google_site_verification:
-disqus:                   programertips
+repository:          https://github.com/nghuuphuoc/programer.tips
+google_analytics:    UA-44786951-3
+google_verification: TiRE8NGZL_B2PzBSrTdfmHMs34Zvvt3sqaWU-Orm2gc
+disqus:              programertips

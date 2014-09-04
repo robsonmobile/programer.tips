@@ -1,0 +1,36 @@
+---
+layout: default
+title: Submit new tip
+---
+
+<div class="pt-post">
+    <h2 class="pt-post-title">Tip me</h2>
+    <div class="pt-post-content">
+        <p>If you have useful programming tip(s), feel free to submit by following the step below:</p>
+
+        <ul class="list-unstyled">
+            <li><span class="pt-step">1</span> Fork the <a href="{{ site.repository }}">project</a></li>
+            <li>
+                <p><span class="pt-step">2</span> Create a new file located at the directory <pre><code>_posts/{current_year}/{current_month}/</code></pre></p>
+                <p>The file must be named as <pre><code>{current_year}-{current_month}-{current-day}-{the-title-of-tip}.html</code></pre></p>
+            </li>
+            <li><span class="pt-step">3</span> The content of file follows the format shown as below:</li>
+        </ul>
+
+        <pre><code>---
+layout:     post
+title:      The title of tip
+categories: [the categories separated by a comma]
+date:       YYYY-MM-DD hh:mm:ss +timezone
+author:
+    github: your_github_account
+    name:   Your full name
+---
+
+The content of tip is HTML</code></pre>
+
+        <ul class="list-unstyled">
+            <li><span class="pt-step">4</span> Pull a new request</li>
+        </ul>
+    </div>
+</div>
