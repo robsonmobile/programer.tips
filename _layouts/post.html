@@ -2,13 +2,7 @@
 layout: default
 ---
 
-<div class="pt-post">
-    <h2 class="pt-post-title">{{ page.title }}</h2>
-    <p class="pt-author-avatar"><img src="http://github.com/{{ page.author.github }}.png" /></p>
-    <div class="pt-post-content">
-        {{ page.content }}
-    </div>
-</div>
+{% include post.html item=page %}
 
 <div class="pt-comment">
     {% include disqus.html %}

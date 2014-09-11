@@ -3,9 +3,20 @@ html {
   min-height: 100%;
 }
 body {
-  background-color: #ede0ce;
   font-family: 'open sans';
   margin-bottom: 100px;
+}
+.tip-separator {
+  margin: 30px 0;
+  height: 1px;
+  background-color: #ccc;
+  text-align: center;
+}
+.tip-separator span {
+  background: #fff;
+  padding: 0 15px;
+  position: relative;
+  top: -0.5em;
 }
 .pt-container {
   margin: 0 auto;
@@ -92,6 +103,15 @@ body {
   margin: 0 0 30px 0;
   text-align: center;
 }
+.tip-post-category {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+}
+.tip-post-category li {
+  display: inline-block;
+  padding: 5px;
+}
 .pt-post-content {
   margin: 40px auto 0 auto;
   padding: 30px 0;
@@ -104,23 +124,13 @@ body {
 .pt-post-content pre code {
   background: #fff;
 }
-.pt-step {
-  background: #ef4723;
-  color: #fff;
-  height: 30px;
-  line-height: 30px;
-  width: 30px;
-  display: inline-block;
-  border-radius: 15px;
-  text-align: center;
-  margin-bottom: 10px;
-}
 .pt-comment {
   margin: 0 auto;
   padding-top: 50px;
   width: 600px;
 }
 .pt-footer {
+  border-top: 1px solid #dfdfdf;
   text-align: center;
   position: absolute;
   bottom: 0;

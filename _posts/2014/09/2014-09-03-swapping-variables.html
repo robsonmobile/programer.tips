@@ -1,27 +1,25 @@
 ---
-layout: post
-title: Swapping variables
-categories: [javascript]
-date: 2014-09-04 11:50:00 +0700
+layout:     post
+title:      Swapping variables
+categories: [javascript, php]
+date:       2014-09-04 11:50:00 +0700
 author:
-    github: nghuuphuoc
-    name: Nguyen Huu Phuoc
+    github:  nghuuphuoc
+    twitter: nghuuphuoc
+    name:    Nguyen Huu Phuoc
 ---
 
-<p>Like other programming languages, when swapping two variables, we often use a temporary one:</p>
+<p>I want to swap two variables without using temporary one:</p>
 
 <pre><code>var a = 'programmer', b = 'tips', temp;
 temp = a;
 a = b;
 b = temp;</code></pre>
 
-<p>But you can do it without using temporary variable as:</p>
-
+<h3>Javascript</h3>
 <pre><code>var a = 'programmer', b = 'tips';
 b = [a, a = b][0];
 console.log(a, b);  // --> tips programmer</code></pre>
-
-<h3>Notes</h3>
 
 <p>ECMAScript 6 provides a shorter and more easy to understand way:</p>
 
@@ -31,3 +29,22 @@ console.log(a, b);  // --> tips programmer</code></pre>
 <pre><code>var a = 6, b = 9;
 a = b + (b=a, 0);
 console.log(a, b);  // --> 9 6</code></pre>
+
+<h3>PHP</h3>
+
+<pre><code>$a = 'programmer';
+$b = 'tips';
+list($a, $b) = array($b, $a);
+echo $a;    // --> tips
+echo $b;    // --> programmer</code></pre>
+
+<p>To swap two numbers in PHP, we can use the XOR operator:</p>
+
+<pre><code>$a ^= $b ^= $a ^= $b;</code></pre>
+
+<p>or simple math operators:</p>
+<pre><code>$a = 5;
+$b = 10;
+$a = $a + $b;
+$b = $a - $b;
+$a = $a - $b;</code></pre>

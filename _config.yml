@@ -2,7 +2,7 @@ name:           Programmer tips
 highlighter:    pygments
 
 source:         .
-destination:    ./_gh_pages
+destination:    ../output
 markdown:       kramdown
 markdown_ext:   'markdown,mkdown,mkdn,mkd,md'
 exclude:        ['README.md', 'node_modules', '*.less']
