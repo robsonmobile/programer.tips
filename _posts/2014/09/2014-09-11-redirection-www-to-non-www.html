@@ -1,0 +1,64 @@
+---
+layout:     post
+title:      Redirection from www to non-www
+categories: [nginx, apache]
+date:       2014-09-11 15:20:00 +0700
+author:
+    github:  nghuuphuoc
+    twitter: nghuuphuoc
+    name:    Nguyen Huu Phuoc
+---
+
+<p>The following tip shows how to configure the web server redirecting your site from www to non-www domain and vice versa.</p>
+
+<h3>Nginx</h3>
+<pre><code># Redirect www to non-www
+server {
+    listen      80;
+    server_name www.example.com;
+    rewrite     ^/(.*)$ http://example.com/$1 permanent;
+}
+
+# Redirect non-www to www
+server {
+    listen      80;
+    server_name example.com;
+    rewrite     ^/(.*)$ http://www.example.com/$1 permanent;
+}</code></pre>
+
+<h3>Apache</h3>
+
+<p>Using VirtualHost setting:</p>
+
+<pre><code># Redirect www to non-www
+&lt;VirtualHost *:80>
+    ServerName example.com
+    ...
+&lt;/VirtualHost>
+
+&lt;VirtualHost *:80>
+    ServerName www.example.com
+    Redirect permanent / http://example.com/
+&lt;/VirtualHost></code></pre>
+
+<pre><code># Redirect non-www to www
+&lt;VirtualHost *:80>
+    ServerName www.example.com
+    ...
+&lt;/VirtualHost>
+
+&lt;VirtualHost *:80>
+    ServerName example.com
+    Redirect permanent / http://www.example.com/
+&lt;/VirtualHost></code></pre>
+
+<p>Using .htaccess file:</p>
+<pre><code># Redirect www to non-www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# Redirect non-www to www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(?!www\.)(.+) [NC]
+RewriteRule ^(.*) http://www.%1/$1 [R=301,NE,L]</code></pre>

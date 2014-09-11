@@ -3,6 +3,28 @@ layout: default
 title: Programmer Tips
 ---
 
-{% for post in site.posts %}
+<div class="tip-list">
+{% for post in paginator.posts %}
     {% include post.html item=post %}
+    <div class="tip-hr"></div>
 {% endfor %}
+</div>
+
+<div class="tip-pagination">
+    {% if paginator.next_page %}
+        <a href="/page/{{paginator.next_page}}" class="tip-pagination-older">Older</a>
+    {% else %}
+        <span class="tip-pagination-older">Older</span>
+    {% endif %}
+
+    {% if paginator.previous_page %}
+        {% if paginator.page == 2 %}
+            <a href="/" class="tip-pagination-newer">Newer</a>
+        {% else %}
+            <a href="/page/{{paginator.previous_page}}" class="tip-pagination-newer">Newer</a>
+        {% endif %}
+    {% else %}
+        <span class="tip-pagination-newer">Newer</span>
+    {% endif %}
+</div>
+<div class="clearfix"></div>

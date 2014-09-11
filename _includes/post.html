@@ -1,13 +1,13 @@
 {% assign item = include.item %}
-<div class="pt-post">
-    <h2 class="pt-post-title"><a href="{{ item.url }}">{{ item.title }}</a></h2>
-    <p class="pt-author-avatar"><img src="http://github.com/{{ item.author.github }}.png" /></p>
+<div class="tip">
+    <h2 class="tip-title"><a href="{{ item.url }}">{{ item.title }}</a></h2>
+    <p class="tip-avatar"><img src="http://github.com/{{ item.author.github }}.png" /></p>
     <ul class="tip-post-category">
     {% for category in item.categories %}
         <li>{{ category }}</li>
     {% endfor %}
     </ul>
-    <div class="pt-post-content">
+    <div class="tip-content">
         {{ item.content }}
     </div>
 </div>

@@ -6,6 +6,9 @@ body {
   font-family: 'open sans';
   margin-bottom: 100px;
 }
+iframe {
+  border: none;
+}
 .tip-separator {
   margin: 30px 0;
   height: 1px;
@@ -18,86 +21,91 @@ body {
   position: relative;
   top: -0.5em;
 }
-.pt-container {
+.tip-hr {
   margin: 0 auto;
-  width: 800px;
+  width: 30%;
+  border: 1px solid #ccc;
+  height: 1px;
 }
-.pt-heading {
-  background: #ef4723;
+.tip-list .tip-hr:last-child {
+  border-color: transparent;
+}
+.tip-container {
+  margin: 0 auto;
+  width: 600px;
+}
+.tip-heading {
+  background: #00A885;
+  color: #fff;
   padding: 100px 0 40px 0;
 }
-.pt-heading h1 {
-  font: 800 64px/64px 'open sans';
-  color: #222;
+.tip-heading h1 {
+  font: 800 50px/80px 'open sans';
   margin: 0 0 50px 0;
   text-align: center;
   text-transform: uppercase;
 }
-.pt-heading span {
+.tip-heading span {
   font: 400 60px/60px 'gentium book basic';
   font-style: italic;
   text-transform: none;
 }
-.pt-nav {
+.tip-nav {
   text-align: center;
   text-transform: uppercase;
   border-bottom: 1px solid #bbb;
   height: 50px;
 }
-.pt-nav ul {
+.tip-nav ul {
   height: 50px;
   line-height: 50px;
   margin: 0;
   padding: 0;
 }
-.pt-nav li {
+.tip-nav li {
   display: inline-block;
   list-style-type: none;
 }
-.pt-nav .pull-left li {
+.tip-nav .pull-left li {
   padding-right: 20px;
 }
-.pt-nav .pull-right li {
+.tip-nav .pull-right li {
   padding-left: 20px;
 }
-.pt-nav i {
+.tip-nav i {
   font-size: 25px;
 }
-.pt-hr {
-  margin: 0 auto;
-  width: 30%;
-}
-.pt-quote {
+.tip-quote {
   padding: 0 20px;
 }
-.pt-quote h2 {
+.tip-quote h2 {
   font: 400 36px/1.4 'cardo';
   font-style: italic;
   margin: 0 0 20px 0;
   text-align: left;
   text-indent: -10px;
 }
-.pt-quote h3 {
+.tip-quote h3 {
   font: 400 36px/1.4 'cardo';
   margin: 0 0 20px 0;
   text-align: right;
   /*text-indent: -32px;*/
 }
-.pt-quote h3 em {
+.tip-quote h3 em {
   font-style: italic;
 }
-.pt-post {
+.tip {
   padding-top: 50px;
 }
-.pt-author-avatar {
+.tip-avatar {
   text-align: center;
 }
-.pt-author-avatar img {
+.tip-avatar img {
   width: 40px;
   height: 40px;
   border-radius: 20px;
 }
-.pt-post-title {
+.tip-title {
   font: 700 50px/50px 'lato';
   color: #222;
   margin: 0 0 30px 0;
@@ -112,24 +120,59 @@ body {
   display: inline-block;
   padding: 5px;
 }
-.pt-post-content {
+.tip-content {
   margin: 40px auto 0 auto;
   padding: 30px 0;
   width: 600px;
 }
-.pt-post-content code {
+.tip-content code {
   background: none;
 }
-.pt-post-content pre,
-.pt-post-content pre code {
+.tip-content pre,
+.tip-content pre code {
   background: #fff;
 }
-.pt-comment {
+.tip-pagination {
+  margin-bottom: 40px;
+  width: 100%;
+  float: left;
+}
+.tip-pagination a,
+.tip-pagination span {
+  display: block;
+  float: left;
+  width: 50%;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 18px;
+}
+.tip-pagination span {
+  color: #bfbfbf;
+}
+.tip-pagination a:hover {
+  background-color: #44b1f6;
+  text-decoration: none;
+  color: #fff;
+  border-color: #44b1f6;
+}
+.tip-pagination .tip-pagination-older {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top: 1px solid #e5e5e5;
+  border-left: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.tip-pagination .tip-pagination-newer {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid #e5e5e5;
+}
+.tip-comment {
   margin: 0 auto;
-  padding-top: 50px;
+  padding: 50px 0;
   width: 600px;
 }
-.pt-footer {
+.tip-footer {
   border-top: 1px solid #dfdfdf;
   text-align: center;
   position: absolute;
@@ -137,6 +180,14 @@ body {
   width: 100%;
   height: 100px;
 }
-.pt-footer .pt-container {
+.tip-footer ul {
+  padding: 0;
+}
+.tip-footer li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 10px;
+}
+.tip-footer .tip-container {
   padding: 30px 0;
 }

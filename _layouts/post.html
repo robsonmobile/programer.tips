@@ -4,6 +4,21 @@ layout: default
 
 {% include post.html item=page %}
 
-<div class="pt-comment">
+<div class="tip-pagination">
+    {% if page.previous.url %}
+        <a href="{{ page.previous.url }}" class="tip-pagination-older" title="{{ page.previous.title }}">Previous</a>
+    {% else %}
+        <span class="tip-pagination-older">Previous</span>
+    {% endif %}
+
+    {% if page.next.url %}
+        <a href="{{ page.next.url }}" class="tip-pagination-newer" title="{{ page.next.title }}">Next</a>
+    {% else %}
+        <span class="tip-pagination-newer">Next</span>
+    {% endif %}
+</div>
+<div class="clearfix"></div>
+
+<div class="tip-comment">
     {% include disqus.html %}
 </div>
