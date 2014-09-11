@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>
     
-        Swapping variables &middot; Programmer tips
+        Redirection from www to non-www &middot; Programmer tips
     
     </title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
@@ -69,65 +69,79 @@
     <div class="tip-container">
         
 <div class="tip">
-    <h2 class="tip-title"><a href="/2014/09/swapping-variables.html">Swapping variables</a></h2>
+    <h2 class="tip-title"><a href="/2014/09/redirection-www-to-non-www.html">Redirection from www to non-www</a></h2>
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
     <ul class="tip-post-category">
     
-        <li>javascript</li>
+        <li>nginx</li>
     
-        <li>php</li>
+        <li>apache</li>
     
     </ul>
     <div class="tip-content">
-        <p>I want to swap two variables without using temporary one:</p>
+        <p>The following tip shows how to configure the web server redirecting your site from www to non-www domain and vice versa.</p>
 
-<pre><code>var a = 'programmer', b = 'tips', temp;
-temp = a;
-a = b;
-b = temp;</code></pre>
+<h3>Nginx</h3>
+<pre><code># Redirect www to non-www
+server {
+    listen      80;
+    server_name www.example.com;
+    rewrite     ^/(.*)$ http://example.com/$1 permanent;
+}
 
-<h3>Javascript</h3>
-<pre><code>var a = 'programmer', b = 'tips';
-b = [a, a = b][0];
-console.log(a, b);  // --> tips programmer</code></pre>
+# Redirect non-www to www
+server {
+    listen      80;
+    server_name example.com;
+    rewrite     ^/(.*)$ http://www.example.com/$1 permanent;
+}</code></pre>
 
-<p>ECMAScript 6 provides a shorter and more easy to understand way:</p>
+<h3>Apache</h3>
 
-<pre><code>[a, b] = [b, a];</code></pre>
+<p>Using VirtualHost setting:</p>
 
-<p>To swap two numbers, we can do:</p>
-<pre><code>var a = 6, b = 9;
-a = b + (b=a, 0);
-console.log(a, b);  // --> 9 6</code></pre>
+<pre><code># Redirect www to non-www
+&lt;VirtualHost *:80>
+    ServerName example.com
+    ...
+&lt;/VirtualHost>
 
-<h3>PHP</h3>
+&lt;VirtualHost *:80>
+    ServerName www.example.com
+    Redirect permanent / http://example.com/
+&lt;/VirtualHost></code></pre>
 
-<pre><code>$a = 'programmer';
-$b = 'tips';
-list($a, $b) = array($b, $a);
-echo $a;    // --> tips
-echo $b;    // --> programmer</code></pre>
+<pre><code># Redirect non-www to www
+&lt;VirtualHost *:80>
+    ServerName www.example.com
+    ...
+&lt;/VirtualHost>
 
-<p>To swap two numbers in PHP, we can use the XOR operator:</p>
+&lt;VirtualHost *:80>
+    ServerName example.com
+    Redirect permanent / http://www.example.com/
+&lt;/VirtualHost></code></pre>
 
-<pre><code>$a ^= $b ^= $a ^= $b;</code></pre>
+<p>Using .htaccess file:</p>
+<pre><code># Redirect www to non-www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
-<p>or simple math operators:</p>
-<pre><code>$a = 5;
-$b = 10;
-$a = $a + $b;
-$b = $a - $b;
-$a = $a - $b;</code></pre>
+# Redirect non-www to www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(?!www\.)(.+) [NC]
+RewriteRule ^(.*) http://www.%1/$1 [R=301,NE,L]</code></pre>
     </div>
 </div>
 
 <div class="tip-pagination">
     
-        <span class="tip-pagination-older">Previous</span>
+        <a href="/2014/09/swapping-variables.html" class="tip-pagination-older" title="Swapping variables">Previous</a>
     
 
     
-        <a href="/2014/09/redirection-www-to-non-www.html" class="tip-pagination-newer" title="Redirection from www to non-www">Next</a>
+        <span class="tip-pagination-newer">Next</span>
     
 </div>
 <div class="clearfix"></div>

@@ -42,43 +42,190 @@
 </head>
 <body>
     <header>
-        <div class="pt-heading">
-            <div class="pt-container">
+        <div class="tip-heading">
+            <div class="tip-container">
                 <h1>
-                    <span>Daily<br/></span>
+                    <span>Daily</span><br/>
                     tips <span>for</span> programmers
                 </h1>
-
-                <div class="pt-quote">
-                    <h2>"Programming is like sex. One mistake and you have to support it for the rest of your life"</h2>
-                    <h3>&mdash; Michael Sinz</h3>
-                </div>
             </div>
         </div>
 
-        <div class="pt-nav">
-            <div class="pt-container">
+        <div class="tip-nav">
+            <div class="tip-container">
                 <ul class="pull-left">
                     <li><a href="/">home</a></li>
-                    <li><a href="/page/submit.html">submit</a></li>
+                    <li><a href="/page/submit.html">TIP ME</a></li>
                 </ul>
 
                 <ul class="pull-right">
                     <li><a href="http://twitter.com/programertips" title="Follow @programertips"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="http://github.com/nghuuphuoc/programer.tips" title="Fork on Github"><i class="fa fa-github"></i></a></li>
+                    <li><a href="https://github.com/nghuuphuoc/programer.tips" title="Fork on Github"><i class="fa fa-github"></i></a></li>
                 </ul>
             </div>
         </div>
     </header>
 
-    <div class="pt-container">
-        
+    <div class="tip-container">
+        <div class="tip-list">
+
+    
+<div class="tip">
+    <h2 class="tip-title"><a href="/2014/09/redirection-www-to-non-www.html">Redirection from www to non-www</a></h2>
+    <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
+    <ul class="tip-post-category">
+    
+        <li>nginx</li>
+    
+        <li>apache</li>
+    
+    </ul>
+    <div class="tip-content">
+        <p>The following tip shows how to configure the web server redirecting your site from www to non-www domain and vice versa.</p>
+
+<h3>Nginx</h3>
+<pre><code># Redirect www to non-www
+server {
+    listen      80;
+    server_name www.example.com;
+    rewrite     ^/(.*)$ http://example.com/$1 permanent;
+}
+
+# Redirect non-www to www
+server {
+    listen      80;
+    server_name example.com;
+    rewrite     ^/(.*)$ http://www.example.com/$1 permanent;
+}</code></pre>
+
+<h3>Apache</h3>
+
+<p>Using VirtualHost setting:</p>
+
+<pre><code># Redirect www to non-www
+&lt;VirtualHost *:80>
+    ServerName example.com
+    ...
+&lt;/VirtualHost>
+
+&lt;VirtualHost *:80>
+    ServerName www.example.com
+    Redirect permanent / http://example.com/
+&lt;/VirtualHost></code></pre>
+
+<pre><code># Redirect non-www to www
+&lt;VirtualHost *:80>
+    ServerName www.example.com
+    ...
+&lt;/VirtualHost>
+
+&lt;VirtualHost *:80>
+    ServerName example.com
+    Redirect permanent / http://www.example.com/
+&lt;/VirtualHost></code></pre>
+
+<p>Using .htaccess file:</p>
+<pre><code># Redirect www to non-www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# Redirect non-www to www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(?!www\.)(.+) [NC]
+RewriteRule ^(.*) http://www.%1/$1 [R=301,NE,L]</code></pre>
+    </div>
+</div>
+    <div class="tip-hr"></div>
+
+    
+<div class="tip">
+    <h2 class="tip-title"><a href="/2014/09/swapping-variables.html">Swapping variables</a></h2>
+    <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
+    <ul class="tip-post-category">
+    
+        <li>javascript</li>
+    
+        <li>php</li>
+    
+    </ul>
+    <div class="tip-content">
+        <p>I want to swap two variables without using temporary one:</p>
+
+<pre><code>var a = 'programmer', b = 'tips', temp;
+temp = a;
+a = b;
+b = temp;</code></pre>
+
+<h3>Javascript</h3>
+<pre><code>var a = 'programmer', b = 'tips';
+b = [a, a = b][0];
+console.log(a, b);  // --> tips programmer</code></pre>
+
+<p>ECMAScript 6 provides a shorter and more easy to understand way:</p>
+
+<pre><code>[a, b] = [b, a];</code></pre>
+
+<p>To swap two numbers, we can do:</p>
+<pre><code>var a = 6, b = 9;
+a = b + (b=a, 0);
+console.log(a, b);  // --> 9 6</code></pre>
+
+<h3>PHP</h3>
+
+<pre><code>$a = 'programmer';
+$b = 'tips';
+list($a, $b) = array($b, $a);
+echo $a;    // --> tips
+echo $b;    // --> programmer</code></pre>
+
+<p>To swap two numbers in PHP, we can use the XOR operator:</p>
+
+<pre><code>$a ^= $b ^= $a ^= $b;</code></pre>
+
+<p>or simple math operators:</p>
+<pre><code>$a = 5;
+$b = 10;
+$a = $a + $b;
+$b = $a - $b;
+$a = $a - $b;</code></pre>
+    </div>
+</div>
+    <div class="tip-hr"></div>
+
+</div>
+
+<div class="tip-pagination">
+    
+        <span class="tip-pagination-older">Older</span>
+    
+
+    
+        <span class="tip-pagination-newer">Newer</span>
+    
+</div>
+<div class="clearfix"></div>
     </div>
 
-    <div class="pt-footer">
-        <div class="pt-container">
+    <div class="tip-footer">
+        <div class="tip-container">
+            <ul>
+                <li><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=nghuuphuoc&amp;repo=programer.tips&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe></li>
+                <li><a href="https://twitter.com/programertips" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @programertips</a></li>
+                <li><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://programer.tips" data-count="horizontal" data-via="programertips">Tweet</a></li>
+            </ul>
             <p>The content is licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0.</a></p>
         </div>
     </div>
+
+
+<script>
+window.twttr = (function (d,s,id) {
+    var t, js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return; js=d.createElement(s); js.id=id; js.async=1;
+    js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+    return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+}(document, "script", "twitter-wjs"));
+</script>
 </body>
 </html>

@@ -42,48 +42,43 @@
 </head>
 <body>
     <header>
-        <div class="pt-heading">
-            <div class="pt-container">
+        <div class="tip-heading">
+            <div class="tip-container">
                 <h1>
-                    <span>Daily<br/></span>
+                    <span>Daily</span><br/>
                     tips <span>for</span> programmers
                 </h1>
-
-                <div class="pt-quote">
-                    <h2>"Programming is like sex. One mistake and you have to support it for the rest of your life"</h2>
-                    <h3>&mdash; Michael Sinz</h3>
-                </div>
             </div>
         </div>
 
-        <div class="pt-nav">
-            <div class="pt-container">
+        <div class="tip-nav">
+            <div class="tip-container">
                 <ul class="pull-left">
                     <li><a href="/">home</a></li>
-                    <li><a href="/page/submit.html">submit</a></li>
+                    <li><a href="/page/submit.html">TIP ME</a></li>
                 </ul>
 
                 <ul class="pull-right">
                     <li><a href="http://twitter.com/programertips" title="Follow @programertips"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="http://github.com/nghuuphuoc/programer.tips" title="Fork on Github"><i class="fa fa-github"></i></a></li>
+                    <li><a href="https://github.com/nghuuphuoc/programer.tips" title="Fork on Github"><i class="fa fa-github"></i></a></li>
                 </ul>
             </div>
         </div>
     </header>
 
-    <div class="pt-container">
-        <div class="pt-post">
-    <h2 class="pt-post-title">Tip me</h2>
-    <div class="pt-post-content">
-        <p>If you have useful programming tip(s), feel free to submit by following the step below:</p>
+    <div class="tip-container">
+        <div class="tip">
+    <h2 class="tip-title">Tip me</h2>
+    <div class="tip-content">
+        <p>If you have useful programming tip(s), feel free to submit by following the steps below:</p>
 
         <ul class="list-unstyled">
-            <li><span class="pt-step">1</span> Fork the <a href="https://github.com/nghuuphuoc/programer.tips">project</a></li>
+            <li>1. Fork the <a href="https://github.com/nghuuphuoc/programer.tips">project</a></li>
             <li>
-                <p><span class="pt-step">2</span> Create a new file located at the directory <pre><code>_posts/{current_year}/{current_month}/</code></pre></p>
+                <p>2. Create a new file located at the directory <pre><code>_posts/{current_year}/{current_month}/</code></pre></p>
                 <p>The file must be named as <pre><code>{current_year}-{current_month}-{current-day}-{the-title-of-tip}.html</code></pre></p>
             </li>
-            <li><span class="pt-step">3</span> The content of file follows the format shown as below:</li>
+            <li>3. The content of file follows the format shown as below:</li>
         </ul>
 
         <pre><code>---
@@ -92,24 +87,40 @@ title:      The title of tip
 categories: [the categories separated by a comma]
 date:       YYYY-MM-DD hh:mm:ss +timezone
 author:
-    github: your_github_account
-    name:   Your full name
+    github:  Your Github username
+    twitter: Your Twitter username
+    name:    Your full name
 ---
 
 The content of tip is HTML</code></pre>
 
         <ul class="list-unstyled">
-            <li><span class="pt-step">4</span> Pull a new request</li>
+            <li>4. Pull a new request</li>
         </ul>
     </div>
 </div>
 
     </div>
 
-    <div class="pt-footer">
-        <div class="pt-container">
+    <div class="tip-footer">
+        <div class="tip-container">
+            <ul>
+                <li><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=nghuuphuoc&amp;repo=programer.tips&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe></li>
+                <li><a href="https://twitter.com/programertips" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @programertips</a></li>
+                <li><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://programer.tips" data-count="horizontal" data-via="programertips">Tweet</a></li>
+            </ul>
             <p>The content is licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0.</a></p>
         </div>
     </div>
+
+
+<script>
+window.twttr = (function (d,s,id) {
+    var t, js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return; js=d.createElement(s); js.id=id; js.async=1;
+    js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+    return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+}(document, "script", "twitter-wjs"));
+</script>
 </body>
 </html>
