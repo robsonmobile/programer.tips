@@ -1,10 +1,10 @@
 Programmer Tips
 ===============
 
-[programer.tips](http://programer.tips) provides daily tips for programmers.
+[programer.tips](http://programer.tips) provides daily tips for programmers, suggested by professional programmers.
 Follow us to get daily tips:
 
-* [@programertip](http://twitter.com/programertip)
+* [@programertips](http://twitter.com/programertips)
 * [@nghuuphuoc](http://twitter.com/nghuuphuoc)
 
 ## How to submit a tip
