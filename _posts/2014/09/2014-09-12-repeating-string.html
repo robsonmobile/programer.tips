@@ -11,16 +11,16 @@ author:
 
 <p>How to generate a string which is repeated by given string?</p>
 
-<h2>Javascript</h2>
-<pre><code>var multiplier = 5,
+<h3>Javascript</h3>
+<pre><code class="javascript">var multiplier = 5,
     input      = 'a',
     output     = new Array(multiplier + 1).join(input);
 console.log(output);   // 'aaaaa'
 </code></pre>
 
-<h2>PHP</h2>
+<h3>PHP</h3>
 <p>PHP provides a built-in <a href="http://php.net/manual/en/function.str-repeat.php">str_repeat</a> function:</p>
-<pre><code>$multiplier = 5;
+<pre><code class="php">$multiplier = 5;
 $input      = 'a';
 $output     = str_repeat($input, $multiplier);
 echo $output;   // 'aaaaa'</code></pre>

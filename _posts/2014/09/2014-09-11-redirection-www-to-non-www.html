@@ -12,7 +12,7 @@ author:
 <p>The following tip shows how to configure the web server redirecting your site from www to non-www domain and vice versa.</p>
 
 <h3>Nginx</h3>
-<pre><code># Redirect www to non-www
+<pre><code class="nginx"># Redirect www to non-www
 server {
     listen      80;
     server_name www.example.com;
@@ -30,7 +30,7 @@ server {
 
 <p>Using VirtualHost setting:</p>
 
-<pre><code># Redirect www to non-www
+<pre><code class="apache"># Redirect www to non-www
 &lt;VirtualHost *:80>
     ServerName example.com
     ...
@@ -41,7 +41,7 @@ server {
     Redirect permanent / http://example.com/
 &lt;/VirtualHost></code></pre>
 
-<pre><code># Redirect non-www to www
+<pre><code class="apache"># Redirect non-www to www
 &lt;VirtualHost *:80>
     ServerName www.example.com
     ...
@@ -53,7 +53,7 @@ server {
 &lt;/VirtualHost></code></pre>
 
 <p>Using .htaccess file:</p>
-<pre><code># Redirect www to non-www
+<pre><code class="apache"># Redirect www to non-www
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]

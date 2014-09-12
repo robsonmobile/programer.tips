@@ -2,7 +2,21 @@
 layout: default
 ---
 
-{% include post.html item=page %}
+<div class="tip">
+    <h2 class="tip-title"><a href="{{ item.url }}">{{ page.title }}</a></h2>
+    <p class="tip-avatar"><img src="http://github.com/{{ page.author.github }}.png" /></p>
+    <ul class="tip-post-category">
+    {% for category in page.categories %}
+        <li>{{ category }}</li>
+    {% endfor %}
+    </ul>
+    <div class="text-center">
+        <a href="{{ site.github.repos }}/blob/master/{{ page.path }}" class="btn btn-default">Improve it on Github</a>
+    </div>
+    <div class="tip-content">
+        {{ page.content }}
+    </div>
+</div>
 
 <div class="tip-pagination">
     {% if page.previous.url %}
@@ -22,3 +36,17 @@ layout: default
 <div class="tip-comment">
     {% include disqus.html %}
 </div>
+
+<script>
+$(function() {
+    $('.tip-content').find('h3, h4, h5, h6').each(function() {
+        var $this   = $(this),
+            id      = $this.html().toLowerCase().replace(/\s/g, '-'),
+            $anchor = $('<a/>').attr('href', '#' + id).html('#').hide().appendTo($this);
+        $this.attr('id', id);
+        $this.hover(function() {
+            $anchor.toggle();
+        });
+    });
+});
+</script>

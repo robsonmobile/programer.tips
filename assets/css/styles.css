@@ -127,6 +127,20 @@ iframe {
 .tip-content pre code {
   background: #fff;
 }
+.tip-content h3 {
+  font-weight: 700;
+}
+.tip-content h3 a {
+  margin-left: 10px;
+}
+.tip-content blockquote {
+  border-left: 5px solid #1ABC9C;
+  font-family: 'cardo';
+  font-size: 18px;
+  font-style: italic;
+  margin-left: -20px;
+  padding-left: 15px;
+}
 .tip-pagination {
   margin-bottom: 40px;
   width: 100%;

@@ -1,0 +1,115 @@
+---
+layout:     post
+title:      Best jQuery practices
+categories: [jquery]
+date:       2014-09-12 14:00:00 +0700
+author:
+    github:  nghuuphuoc
+    twitter: nghuuphuoc
+    name:    Nguyen Huu Phuoc
+---
+
+<p>This post introduces best jQuery practices you should follow:</p>
+
+<h3>Loading from CDN</h3>
+<p>Instead of storing jQuery on your server, choose to load it from popular CDNs. It will decrease the page loading time.</p>
+<pre><code class="xml">// Don't
+&lt;script src="/vendor/jquery/jquery.min.js">&lt;/script>
+
+// Do
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script></code></pre>
+
+<h3>Shorthand for the ready event</h3>
+<pre><code class="javascript">// Usual way
+$(document).ready(function() {
+    ...
+});
+
+// The shorthand
+$(function() {
+
+});</code></pre>
+
+<h3>Naming jQuery object starting with $</h3>
+<p>With this naming convention, we can know whether or not a variable is a jQuery object.</p>
+<pre><code class="javascript">// Don't
+var form = $('#contactForm');
+
+// Do
+var $form = $('#contactForm');</code></pre>
+
+<h3>Using $this</h3>
+<p>Use $this variable at the beginning anonymous functions, for example, inside an each loop:</p>
+<pre><code class="javascript">// Don't
+$('li').each(function() {
+    $(this).on('click', function() {
+        $(this).addClass('active');
+    });
+});
+
+// Do
+$('li').each(function() {
+    var $this = $(this);
+    $this.on('click', function() {
+        $this.addClass('active');
+    });
+});</code></pre>
+
+<h3>Caching jQuery objects</h3>
+<p>If a jQuery object is used multiple times, caching it will save the performance of script.</p>
+<pre><code class="javascript">// Don't
+$('.menu li').each(function() { ... });
+$('.menu li').each(function() { ... });
+
+// Do
+var $items = $('.menu li');
+$items.each(function() { ... });
+
+// Reuse it
+$items.each(function() { ... });</code></pre>
+
+<h3>Chaining method</h3>
+<p>Chaining method is one of most powerful features of jQuery. It allows us to call multiple methods at the same time.</p>
+<blockquote>"Write less, do more", the jQuery's slogan, is perfectly right in this case</blockquote>
+<pre><code class="javascript">// Don't
+var $a = $('#about');
+$a.hide();
+$a.addClass();
+$a.fadeIn();
+$a.hide();
+
+// Do
+$('#about').hide().addClass().fadeIn().hide();
+
+// Better
+// Add line-break and indent for readability
+$('#about')
+    .hide()
+    .addClass()
+    .fadeIn()
+    .hide();</code></pre>
+
+<h3>Creating new element</h3>
+<p>When creating new element, try to use jQuery methods to manipulate the element instead of giving full HTML code.</p>
+<pre><code class="javascript">// Don't
+var $hidden = $('&lt;input class="form-control" type="hidden" name="foo" value="bar" />').appendTo('#form');
+
+// Do
+var $hidden = $('&lt;input/>')
+                .addClass('form-control')
+                .attr('type', 'hidden')
+                .attr('name', 'foo')
+                .val('bar')
+                .appendTo('#form');</code></pre>
+
+<h3>Using filtering methods instead of pseudo selectors</h3>
+<p>When possible, use jQuery filter method instead of pseudo selectors. jQuery then will use querySelectorAll method which is faster than using Sizzle methods.</p>
+<blockquote><a href="https://github.com/jquery/sizzle">Sizzle</a> is a pure-JavaScript CSS selector engine used by jQuery.</blockquote>
+<pre><code class="javascript">// Don't
+$('.item:first')
+
+// Do
+$('.item').eq(0)</code></pre>
+
+
+
