@@ -45,44 +45,59 @@
 <body>
     <header>
         <div class="tip-heading">
-            <div class="tip-container">
-                <h1>
-                    <span>Daily</span><br/>
-                    tips <span>for</span> programmers
-                </h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1>
+                            <span>Daily</span><br/>
+                            tips <span>for</span> programmers
+                        </h1>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="tip-nav">
-            <div class="tip-container">
-                <ul class="pull-left">
-                    <li><a href="/">home</a></li>
-                    <li><a href="/page/submit.html">TIP ME</a></li>
-                </ul>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <ul class="pull-left">
+                            <li><a href="/">home</a></li>
+                            <li><a href="/page/submit.html">TIP ME</a></li>
+                        </ul>
 
-                <ul class="pull-right">
-                    <li><a href="http://twitter.com/programertips" title="Follow @programertips"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="{{ site.github.repos }}" title="Fork on Github"><i class="fa fa-github"></i></a></li>
-                </ul>
+                        <ul class="pull-right">
+                            <li><a href="http://twitter.com/programertips" title="Follow @programertips"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="{{ site.github.repos }}" title="Fork on Github"><i class="fa fa-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <div class="tip-container">
-        {{ content }}
-    </div>
-
-    <div class="tip-footer">
-        <div class="tip-container">
-            <ul>
-                <li><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=nghuuphuoc&amp;repo=programer.tips&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe></li>
-                <li><a href="https://twitter.com/programertips" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @programertips</a></li>
-                <li><a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ site.url }}" data-count="horizontal" data-via="programertips">Tweet</a></li>
-            </ul>
-            <p>The content is licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0.</a></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                {{ content }}
+            </div>
         </div>
     </div>
 
+    <div class="tip-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <ul>
+                        <li><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=nghuuphuoc&amp;repo=programer.tips&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe></li>
+                        <li><a href="https://twitter.com/programertips" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @programertips</a></li>
+                        <li><a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ site.url }}" data-count="horizontal" data-via="programertips">Tweet</a></li>
+                    </ul>
+                    <p>The content is licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <script>
 window.twttr = (function (d,s,id) {
