@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>
     
-        Swapping variables &middot; Programmer tips
+        Repeating string &middot; Programmer tips
     
     </title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
@@ -80,7 +80,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="tip">
-    <h2 class="tip-title"><a href="">Swapping variables</a></h2>
+    <h2 class="tip-title"><a href="">Repeating string</a></h2>
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
     <ul class="tip-post-category">
     
@@ -90,58 +90,34 @@
     
     </ul>
     <div class="text-center">
-        <a href="https://github.com/nghuuphuoc/programer.tips/blob/master/_posts/2014/09/2014-09-03-swapping-variables.html" class="btn btn-default">Improve it on Github</a>
+        <a href="https://github.com/nghuuphuoc/programer.tips/blob/master/_posts/2014/09/2014-09-12-repeating-string.html" class="btn btn-default">Improve it on Github</a>
     </div>
     <div class="tip-content">
-        <p>I want to swap two variables without using temporary one:</p>
-
-<pre><code class="javascript">var a = 'programmer', b = 'tips', temp;
-temp = a;
-a = b;
-b = temp;</code></pre>
+        <p>How to generate a string which is repeated by given string?</p>
 
 <h3>Javascript</h3>
-<pre><code class="javascript">var a = 'programmer', b = 'tips';
-b = [a, a = b][0];
-console.log(a, b);  // tips programmer</code></pre>
-
-<p>ECMAScript 6 provides a shorter and more easy to understand way:</p>
-
-<pre><code class="javascript">[a, b] = [b, a];</code></pre>
-
-<p>To swap two numbers, we can do:</p>
-<pre><code class="javascript">var a = 6, b = 9;
-a = b + (b=a, 0);
-console.log(a, b);  // 9 6</code></pre>
+<pre><code class="javascript">var multiplier = 5,
+    input      = 'a',
+    output     = new Array(multiplier + 1).join(input);
+console.log(output);   // 'aaaaa'
+</code></pre>
 
 <h3>PHP</h3>
-
-<pre><code class="php">$a = 'programmer';
-$b = 'tips';
-list($a, $b) = array($b, $a);
-echo $a;    // tips
-echo $b;    // programmer</code></pre>
-
-<p>To swap two numbers in PHP, we can use the XOR operator:</p>
-
-<pre><code class="php">$a ^= $b ^= $a ^= $b;</code></pre>
-
-<p>or simple math operators:</p>
-<pre><code class="php">$a = 5;
-$b = 10;
-$a = $a + $b;
-$b = $a - $b;
-$a = $a - $b;</code></pre>
+<p>PHP provides a built-in <a href="http://php.net/manual/en/function.str-repeat.php">str_repeat</a> function:</p>
+<pre><code class="php">$multiplier = 5;
+$input      = 'a';
+$output     = str_repeat($input, $multiplier);
+echo $output;   // 'aaaaa'</code></pre>
     </div>
 </div>
 
 <div class="tip-pagination">
     
-        <span class="tip-pagination-older">Previous</span>
+        <a href="/2014/09/redirection-www-to-non-www.html" class="tip-pagination-older" title="Redirection from www to non-www">Previous</a>
     
 
     
-        <a href="/2014/09/redirection-www-to-non-www.html" class="tip-pagination-newer" title="Redirection from www to non-www">Next</a>
+        <a href="/2014/09/best-jquery-practices.html" class="tip-pagination-newer" title="Best jQuery practices">Next</a>
     
 </div>
 <div class="clearfix"></div>

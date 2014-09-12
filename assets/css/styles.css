@@ -4,7 +4,7 @@ html {
 }
 body {
   font-family: 'open sans';
-  margin-bottom: 100px;
+  margin-bottom: 200px;
 }
 iframe {
   border: none;
@@ -29,10 +29,6 @@ iframe {
 }
 .tip-list .tip-hr:last-child {
   border-color: transparent;
-}
-.tip-container {
-  margin: 0 auto;
-  width: 600px;
 }
 .tip-heading {
   background: #00A885;
@@ -123,7 +119,6 @@ iframe {
 .tip-content {
   margin: 40px auto 0 auto;
   padding: 30px 0;
-  width: 600px;
 }
 .tip-content code {
   background: none;
@@ -131,6 +126,20 @@ iframe {
 .tip-content pre,
 .tip-content pre code {
   background: #fff;
+}
+.tip-content h3 {
+  font-weight: 700;
+}
+.tip-content h3 a {
+  margin-left: 10px;
+}
+.tip-content blockquote {
+  border-left: 5px solid #1ABC9C;
+  font-family: 'cardo';
+  font-size: 18px;
+  font-style: italic;
+  margin-left: -20px;
+  padding-left: 15px;
 }
 .tip-pagination {
   margin-bottom: 40px;
@@ -170,15 +179,15 @@ iframe {
 .tip-comment {
   margin: 0 auto;
   padding: 50px 0;
-  width: 600px;
 }
 .tip-footer {
   border-top: 1px solid #dfdfdf;
   text-align: center;
   position: absolute;
+  padding-top: 30px;
   bottom: 0;
   width: 100%;
-  height: 100px;
+  height: 200px;
 }
 .tip-footer ul {
   padding: 0;

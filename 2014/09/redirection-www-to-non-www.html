@@ -26,9 +26,11 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400|Open+Sans:300,400,600,700,800|Gentium+Book+Basic:400,400italic" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Cardo:400,400italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Cardo:400,400italic,700" rel="stylesheet" type="text/css">
+    <link href="/vendor/highlight/styles/github.css" rel="stylesheet" type="text/css">
     <link href="/assets/css/styles.css" rel="stylesheet" type="text/css">
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -43,33 +45,42 @@
 <body>
     <header>
         <div class="tip-heading">
-            <div class="tip-container">
-                <h1>
-                    <span>Daily</span><br/>
-                    tips <span>for</span> programmers
-                </h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1>
+                            <span>Daily</span><br/>
+                            tips <span>for</span> programmers
+                        </h1>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="tip-nav">
-            <div class="tip-container">
-                <ul class="pull-left">
-                    <li><a href="/">home</a></li>
-                    <li><a href="/page/submit.html">TIP ME</a></li>
-                </ul>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <ul class="pull-left">
+                            <li><a href="/">home</a></li>
+                            <li><a href="/page/submit.html">TIP ME</a></li>
+                        </ul>
 
-                <ul class="pull-right">
-                    <li><a href="http://twitter.com/programertips" title="Follow @programertips"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="https://github.com/nghuuphuoc/programer.tips" title="Fork on Github"><i class="fa fa-github"></i></a></li>
-                </ul>
+                        <ul class="pull-right">
+                            <li><a href="http://twitter.com/programertips" title="Follow @programertips"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://github.com/nghuuphuoc/programer.tips" title="Fork on Github"><i class="fa fa-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <div class="tip-container">
-        
-<div class="tip">
-    <h2 class="tip-title"><a href="/2014/09/redirection-www-to-non-www.html">Redirection from www to non-www</a></h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="tip">
+    <h2 class="tip-title"><a href="">Redirection from www to non-www</a></h2>
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
     <ul class="tip-post-category">
     
@@ -78,11 +89,14 @@
         <li>apache</li>
     
     </ul>
+    <div class="text-center">
+        <a href="https://github.com/nghuuphuoc/programer.tips/blob/master/_posts/2014/09/2014-09-11-redirection-www-to-non-www.html" class="btn btn-default">Improve it on Github</a>
+    </div>
     <div class="tip-content">
         <p>The following tip shows how to configure the web server redirecting your site from www to non-www domain and vice versa.</p>
 
 <h3>Nginx</h3>
-<pre><code># Redirect www to non-www
+<pre><code class="nginx"># Redirect www to non-www
 server {
     listen      80;
     server_name www.example.com;
@@ -100,7 +114,7 @@ server {
 
 <p>Using VirtualHost setting:</p>
 
-<pre><code># Redirect www to non-www
+<pre><code class="apache"># Redirect www to non-www
 &lt;VirtualHost *:80>
     ServerName example.com
     ...
@@ -111,7 +125,7 @@ server {
     Redirect permanent / http://example.com/
 &lt;/VirtualHost></code></pre>
 
-<pre><code># Redirect non-www to www
+<pre><code class="apache"># Redirect non-www to www
 &lt;VirtualHost *:80>
     ServerName www.example.com
     ...
@@ -123,7 +137,7 @@ server {
 &lt;/VirtualHost></code></pre>
 
 <p>Using .htaccess file:</p>
-<pre><code># Redirect www to non-www
+<pre><code class="apache"># Redirect www to non-www
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
@@ -141,7 +155,7 @@ RewriteRule ^(.*) http://www.%1/$1 [R=301,NE,L]</code></pre>
     
 
     
-        <span class="tip-pagination-newer">Next</span>
+        <a href="/2014/09/repeating-string.html" class="tip-pagination-newer" title="Repeating string">Next</a>
     
 </div>
 <div class="clearfix"></div>
@@ -157,20 +171,40 @@ var disqus_shortname = 'programertips';
 })();
 </script>
 </div>
-    </div>
 
-    <div class="tip-footer">
-        <div class="tip-container">
-            <ul>
-                <li><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=nghuuphuoc&amp;repo=programer.tips&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe></li>
-                <li><a href="https://twitter.com/programertips" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @programertips</a></li>
-                <li><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://programer.tips" data-count="horizontal" data-via="programertips">Tweet</a></li>
-            </ul>
-            <p>The content is licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0.</a></p>
+<script>
+$(function() {
+    $('.tip-content').find('h3, h4, h5, h6').each(function() {
+        var $this   = $(this),
+            id      = $this.html().toLowerCase().replace(/\s/g, '-'),
+            $anchor = $('<a/>').attr('href', '#' + id).html('#').hide().appendTo($this);
+        $this.attr('id', id);
+        $this.hover(function() {
+            $anchor.toggle();
+        });
+    });
+});
+</script>
+            </div>
         </div>
     </div>
 
+    <div class="tip-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <ul>
+                        <li><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=nghuuphuoc&amp;repo=programer.tips&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe></li>
+                        <li><a href="https://twitter.com/programertips" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @programertips</a></li>
+                        <li><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://programer.tips" data-count="horizontal" data-via="programertips">Tweet</a></li>
+                    </ul>
+                    <p>The content is licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
+<script src="/vendor/highlight/highlight.pack.js"></script>
 <script>
 window.twttr = (function (d,s,id) {
     var t, js, fjs = d.getElementsByTagName(s)[0];
@@ -178,6 +212,11 @@ window.twttr = (function (d,s,id) {
     js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
     return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
 }(document, "script", "twitter-wjs"));
+</script>
+<script>
+$(function() {
+    hljs.initHighlightingOnLoad();
+});
 </script>
 </body>
 </html>
