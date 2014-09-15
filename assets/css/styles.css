@@ -34,22 +34,38 @@ iframe {
   background: #00A885;
   color: #fff;
   padding: 100px 0 40px 0;
+  text-align: center;
 }
 .tip-heading h1 {
-  font: 800 50px/80px 'open sans';
-  margin: 0 0 50px 0;
-  text-align: center;
-  text-transform: uppercase;
-}
-.tip-heading span {
   font: 400 60px/60px 'gentium book basic';
   font-style: italic;
-  text-transform: none;
+  margin: 0 0 20px 0;
+}
+.tip-heading h1 a,
+.tip-heading h1 a:hover {
+  text-decoration: none;
+}
+.tip-heading span {
+  font: 800 50px/80px 'open sans';
+  font-style: normal;
+  text-transform: uppercase;
+}
+.tip-heading span.tip-cursor {
+  border-left: 5px solid #fff;
+  padding-left: 10px;
+  width: 5px;
+  -webkit-animation: blinker 1s linear infinite;
+  -moz-animation: blinker 1s linear infinite;
+  -ms-animation: blinker 1s linear infinite;
+  -o-animation: blinker 1s linear infinite;
+  animation: blinker 1s linear infinite;
+}
+.tip-heading a {
+  color: #FFF;
 }
 .tip-nav {
   text-align: center;
   text-transform: uppercase;
-  border-bottom: 1px solid #bbb;
   height: 50px;
 }
 .tip-nav ul {
@@ -61,6 +77,7 @@ iframe {
 .tip-nav li {
   display: inline-block;
   list-style-type: none;
+  padding: 0 10px;
 }
 .tip-nav .pull-left li {
   padding-right: 20px;
@@ -69,7 +86,7 @@ iframe {
   padding-left: 20px;
 }
 .tip-nav i {
-  font-size: 25px;
+  font-size: 40px;
 }
 .tip-quote {
   padding: 0 20px;
@@ -176,6 +193,13 @@ iframe {
   border-bottom-right-radius: 5px;
   border: 1px solid #e5e5e5;
 }
+.tip-btn-edit {
+  background-color: #44b1f6;
+  color: #fff;
+}
+.tip-btn-edit:hover {
+  color: #fff;
+}
 .tip-comment {
   margin: 0 auto;
   padding: 50px 0;
@@ -199,4 +223,37 @@ iframe {
 }
 .tip-footer .tip-container {
   padding: 30px 0;
+}
+@-moz-keyframes blinker {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+@-webkit-keyframes blinker {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+@keyframes blinker {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
 }

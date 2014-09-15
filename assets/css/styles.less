@@ -45,23 +45,38 @@ iframe {
   background: #00A885;
   color: #fff;
   padding: 100px 0 40px 0;
+  text-align: center;
   h1 {
-    font: 800 50px/80px 'open sans';
-    margin: 0 0 50px 0;
-    text-align: center;
-    text-transform: uppercase;
-  }
-  span {
     font: 400 60px/60px 'gentium book basic';
     font-style: italic;
-    text-transform: none;
+    margin: 0 0 20px 0;
+    a, a:hover {
+      text-decoration: none;
+    }
+  }
+  span {
+    font: 800 50px/80px 'open sans';
+    font-style: normal;
+    text-transform: uppercase;
+    &.tip-cursor {
+      border-left: 5px solid #fff;
+      padding-left: 10px;
+      width: 5px;
+      -webkit-animation: blinker 1s linear infinite;
+      -moz-animation: blinker 1s linear infinite;
+      -ms-animation: blinker 1s linear infinite;
+      -o-animation: blinker 1s linear infinite;
+      animation: blinker 1s linear infinite;
+    }
+  }
+  a {
+    color: #FFF;
   }
 }
 
 .tip-nav {
   text-align: center;
   text-transform: uppercase;
-  border-bottom: 1px solid #bbb;
   height: 50px;
   ul {
     height: 50px;
@@ -72,6 +87,7 @@ iframe {
   li {
     display: inline-block;
     list-style-type: none;
+    padding: 0 10px;
   }
   .pull-left {
     li {
@@ -84,7 +100,7 @@ iframe {
     }
   }
   i {
-    font-size: 25px;
+    font-size: 40px;
   }
 }
 
@@ -198,6 +214,13 @@ iframe {
     border: 1px solid #e5e5e5;
   }
 }
+.tip-btn-edit {
+  background-color: #44b1f6;
+  color: #fff;
+  &:hover {
+    color: #fff;
+  }
+}
 
 .tip-comment {
   margin: 0 auto;
@@ -223,4 +246,22 @@ iframe {
   .tip-container {
     padding: 30px 0;
   }
+}
+
+@-moz-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
 }
