@@ -13,10 +13,52 @@ author:
 
 <h3>Loading from CDN</h3>
 <p>Instead of storing jQuery on your server, choose to load it from popular CDNs. It will decrease the page loading time.</p>
-<pre><code class="xml">// Don't
+<pre><code class="xml">&lt;!-- Don't -->
 &lt;script src="/vendor/jquery/jquery.min.js">&lt;/script>
 
-// Do
+&lt;!-- Do -->
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
+
+
+</code></pre>
+
+<p>Below is the list of popular CDNs which you can find jQuery on:</p>
+<ul>
+    <li><a href="https://developers.google.com/speed/libraries/devguide#jquery">Google CDN</a></li>
+    <li><a href="http://www.asp.net/ajax/cdn#jQuery_Releases_on_the_CDN_0">Microsoft CDN</a></li>
+    <li><a href="http://jquery.com/download/#jquery-39-s-cdn-provided-by-maxcdn">jQuery CDN</a></li>
+    <li><a href="http://cdnjs.com/libraries/jquery/">CDNJS CDN</a></li>
+    <li><a href="http://www.jsdelivr.com/#!jquery">jsDelivr CDN</a></li>
+</ul>
+
+<p>There are some good practices, not only for jQuery, but also for other CSS, JS libraries when loading them from CDN:</p>
+<p><strong>Choosing the compressed version</strong></p>
+<pre><code class="xml">&lt;!-- Don't -->
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js">&lt;/script>
+
+&lt;!-- Do -->
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script></code></pre>
+
+<p><strong>Placing the script at the bottom of page</strong></p>
+<pre><code class="xml">&lt;!doctype html>
+&lt;head>
+    ...
+    &lt;!-- Don't -->
+    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
+&lt;/head>
+&lt;body>
+    ...
+    &lt;!-- Do -->
+    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
+&lt;/body>
+...</code></pre>
+
+<p><strong>Using protocol-relative URL</strong></p>
+<p>Leaving http: or https: out of the URL. By doing this, the browser will choose to load the https URL of script if your page is severed under https.</p>
+<pre><code class="xml">&lt;!-- Don't -->
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
+
+&lt;!-- Do -->
 &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script></code></pre>
 
 <h3>Shorthand for the ready event</h3>
@@ -102,14 +144,110 @@ var $hidden = $('&lt;input/>')
                 .val('bar')
                 .appendTo('#form');</code></pre>
 
-<h3>Using filtering methods instead of pseudo selectors</h3>
-<p>When possible, use jQuery filter method instead of pseudo selectors. jQuery then will use querySelectorAll method which is faster than using Sizzle methods.</p>
-<blockquote><a href="https://github.com/jquery/sizzle">Sizzle</a> is a pure-JavaScript CSS selector engine used by jQuery.</blockquote>
+<h3>Don't mix CSS with jQuery</h3>
+<p>Don't set the CSS styles for element directly. Using CSS class instead.</p>
+<pre><code class="javascript">// Don't
+$('#button').css({
+    'background-color': '#5cb85c',
+    'border-color': '#4cae4c'
+});
+
+// Do
+.success {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+$('#button').addClass('success');</code></pre>
+
+<h3>Optimizing selectors</h3>
+
+<p><strong>Using ID selector</strong></p>
+<p>To retrieve the element by given ID, jQuery uses native document.getElementById() method which is faster than using Sizzle.</p>
+<blockquote><a href="https://github.com/jquery/sizzle">Sizzle</a> is a pure-JavaScript CSS selector engine used by jQuery</blockquote>
+<pre><code class="javascript">// Don't
+$('#wrapper #inner');
+$('div#inner');
+$('.wrapper #inner');
+
+// Do
+$('#inner');</code></pre>
+
+<p><strong>Using ID-based selector</strong></p>
+<pre><code class="javascript">// Don't
+$('#container .row');
+
+// Faster
+$('#container').find('.row');</code></pre>
+
+<p><strong>Specificity</strong></p>
+<p>Be specific on the right-hand side of your selector, and less specific on the left.</p>
+<pre><code class="javascript">// Unoptimized
+$('div.data .gonzalez');
+
+// Optimized
+$('.data td.gonzalez');</code></pre>
+
+<p><strong>Avoid the universal selectors</strong></p>
+<pre><code class="javascript">// Slow
+$('div.container > *');
+
+// Faster
+$('.container').children();</code></pre>
+
+<p><strong>Avoid implied universal selectors</strong></p>
+<p>It's recommended to prefix a pseudo-class selectors (beginning with :) with a tag name or other selector. Otherwise, the universal selector (*) is still implied.</p>
+<pre><code class="javascript">// Don't
+$('.category :radio');
+
+// Do
+$('.category input:radio');</code></pre>
+
+<p><strong>Using filtering methods instead of pseudo selectors</strong></p>
+<p>When possible, use jQuery filter method instead of pseudo selectors. jQuery then uses querySelectorAll method which is faster than using Sizzle methods.</p>
 <pre><code class="javascript">// Don't
 $('.item:first')
 
 // Do
 $('.item').eq(0)</code></pre>
 
+<h3>Don't use JS inline to bind events</h3>
+<p>Always using jQuery to bind events:</p>
+<pre><code class="javascript">&lt;!-- Don't -->
+&lt;button id="saveButton" onclick="javascript: save();">Save&lt;/button>
 
+// Do
+$('#saveButton').on('click', function() {
+    ...
+});</code></pre>
 
+<h3>Using custom namespace for events</h3>
+<p>By using custom namespace, you can easily unbind the exact event without affecting to other event handlers which are bound to the element.</p>
+<pre><code class="javascript">$('#saveButton').on('click.bv', function() { ... });
+
+// Later, it's possible to unbind the event handler
+$('#saveButton').off('click.bv');</code></pre>
+
+<h3>Don't put all parameters in Ajax URL</h3>
+<p>When sending data to remote URL using an Ajax request, use data option to send them instead of putting in the URL.</p>
+<pre><code class="javascript">// Don't
+$.ajax({
+    url: '/remote/url?param1=value1&amp;param2=value2...'
+}});
+
+// Do
+$.ajax({
+    url: '/remote/url',
+    data: {
+        param1: 'value1',
+        param2: 'value2'
+        ...
+    }
+});</code></pre>
+
+<p>In the case the parameter might be too long (the article's content, for example), consider to use the POST method for both Ajax requests and the back-end.</p>
+<blockquote>Internet Explorer 8 (and earlier) <a href="http://support.microsoft.com/kb/208427">limits</a> 2083 characters in URL</blockquote>
+
+<h3>References</h3>
+<ul>
+    <li><a href="http://learn.jquery.com/performance/optimize-selectors/">Optimize selectors</a></li>
+</ul>

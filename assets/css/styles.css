@@ -97,9 +97,9 @@ iframe {
   text-align: center;
 }
 .tip-avatar img {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
 }
 .tip-title {
   font: 700 50px/50px 'lato';
