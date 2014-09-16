@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>
     
-        Redirection from www to non-www &middot; Programmer tips
+        Repeating string in Javascript &middot; Programmer tips
     
     </title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
@@ -69,82 +69,42 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="tip">
-    <h2 class="tip-title"><a href="">Redirection from www to non-www</a></h2>
+    <h2 class="tip-title"><a href="">Repeating string in Javascript</a></h2>
+
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
+
     <ul class="tip-post-category">
     
-        <li>nginx</li>
-    
-        <li>apache</li>
+        <li>javascript</li>
     
     </ul>
-    <div class="text-center">
-        <a href="https://github.com/nghuuphuoc/programer.tips/blob/master/_posts/2014/09/2014-09-11-redirection-www-to-non-www.html" class="btn tip-btn-edit">Improve it on Github</a>
+
+    <div class="tip-date">
+        <span>11 September 2014</span>
     </div>
+
+    <div class="text-center">
+        <a href="https://github.com/nghuuphuoc/programer.tips/blob/master/_posts/2014/09/2014-09-11-repeating-string-in-javascript.html" class="btn tip-btn-edit">Improve it on Github</a>
+    </div>
+
     <div class="tip-content">
-        <p>The following tip shows how to configure the web server redirecting your site from www to non-www domain and vice versa.</p>
+        <p>How to generate a string which is repeated by given string in Javascript?</p>
 
-<h3>Nginx</h3>
-<pre><code class="nginx"># Redirect www to non-www
-server {
-    listen      80;
-    server_name www.example.com;
-    rewrite     ^/(.*)$ http://example.com/$1 permanent;
-}
-
-# Redirect non-www to www
-server {
-    listen      80;
-    server_name example.com;
-    rewrite     ^/(.*)$ http://www.example.com/$1 permanent;
-}</code></pre>
-
-<h3>Apache</h3>
-
-<p>Using VirtualHost setting:</p>
-
-<pre><code class="apache"># Redirect www to non-www
-&lt;VirtualHost *:80>
-    ServerName example.com
-    ...
-&lt;/VirtualHost>
-
-&lt;VirtualHost *:80>
-    ServerName www.example.com
-    Redirect permanent / http://example.com/
-&lt;/VirtualHost></code></pre>
-
-<pre><code class="apache"># Redirect non-www to www
-&lt;VirtualHost *:80>
-    ServerName www.example.com
-    ...
-&lt;/VirtualHost>
-
-&lt;VirtualHost *:80>
-    ServerName example.com
-    Redirect permanent / http://www.example.com/
-&lt;/VirtualHost></code></pre>
-
-<p>Using .htaccess file:</p>
-<pre><code class="apache"># Redirect www to non-www
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
-
-# Redirect non-www to www
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^(?!www\.)(.+) [NC]
-RewriteRule ^(.*) http://www.%1/$1 [R=301,NE,L]</code></pre>
+<pre><code class="javascript">var multiplier = 5,
+    input      = 'a',
+    output     = new Array(multiplier + 1).join(input);
+console.log(output);   // 'aaaaa'
+</code></pre>
     </div>
 </div>
 
 <div class="tip-pagination">
     
-        <a href="/2014/09/swapping-variables.html" class="tip-pagination-older" title="Swapping variables">Previous</a>
+        <a href="/2014/09/redirection-from-www-to-non-www.html" class="tip-pagination-older" title="Redirection from www to non-www">Previous</a>
     
 
     
-        <a href="/2014/09/repeating-string.html" class="tip-pagination-newer" title="Repeating string">Next</a>
+        <a href="/2014/09/best-jquery-practices.html" class="tip-pagination-newer" title="Best jQuery practices">Next</a>
     
 </div>
 <div class="clearfix"></div>

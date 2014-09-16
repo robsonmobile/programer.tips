@@ -70,7 +70,9 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="tip">
     <h2 class="tip-title"><a href="">Swapping variables</a></h2>
+
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
+
     <ul class="tip-post-category">
     
         <li>javascript</li>
@@ -78,9 +80,15 @@
         <li>php</li>
     
     </ul>
-    <div class="text-center">
-        <a href="https://github.com/nghuuphuoc/programer.tips/blob/master/_posts/2014/09/2014-09-03-swapping-variables.html" class="btn tip-btn-edit">Improve it on Github</a>
+
+    <div class="tip-date">
+        <span>06 September 2014</span>
     </div>
+
+    <div class="text-center">
+        <a href="https://github.com/nghuuphuoc/programer.tips/blob/master/_posts/2014/09/2014-09-06-swapping-variables.html" class="btn tip-btn-edit">Improve it on Github</a>
+    </div>
+
     <div class="tip-content">
         <p>I want to swap two variables without using temporary one:</p>
 
@@ -105,7 +113,8 @@ console.log(a, b);  // 9 6</code></pre>
 
 <h3>PHP</h3>
 
-<pre><code class="php">$a = 'programmer';
+<pre><code class="php">&lt;?php
+$a = 'programmer';
 $b = 'tips';
 list($a, $b) = array($b, $a);
 echo $a;    // tips
@@ -113,10 +122,12 @@ echo $b;    // programmer</code></pre>
 
 <p>To swap two numbers in PHP, we can use the XOR operator:</p>
 
-<pre><code class="php">$a ^= $b ^= $a ^= $b;</code></pre>
+<pre><code class="php">&lt;?php
+$a ^= $b ^= $a ^= $b;</code></pre>
 
 <p>or simple math operators:</p>
-<pre><code class="php">$a = 5;
+<pre><code class="php">&lt;?php
+$a = 5;
 $b = 10;
 $a = $a + $b;
 $b = $a - $b;
@@ -130,7 +141,7 @@ $a = $a - $b;</code></pre>
     
 
     
-        <a href="/2014/09/redirection-www-to-non-www.html" class="tip-pagination-newer" title="Redirection from www to non-www">Next</a>
+        <a href="/2014/09/redirection-from-www-to-non-www.html" class="tip-pagination-newer" title="Redirection from www to non-www">Next</a>
     
 </div>
 <div class="clearfix"></div>

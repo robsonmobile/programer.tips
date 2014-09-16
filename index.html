@@ -73,12 +73,19 @@
     
 <div class="tip">
     <h2 class="tip-title"><a href="/2014/09/best-jquery-practices.html">Best jQuery practices</a></h2>
+
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
+
     <ul class="tip-post-category">
     
         <li>jquery</li>
     
     </ul>
+
+    <div class="tip-date">
+        <span>12 September 2014</span>
+    </div>
+
     <div class="tip-content">
         <p>This post introduces best jQuery practices you should follow:</p>
 
@@ -88,10 +95,7 @@
 &lt;script src="/vendor/jquery/jquery.min.js">&lt;/script>
 
 &lt;!-- Do -->
-&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
-
-
-</code></pre>
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script></code></pre>
 
 <p>Below is the list of popular CDNs which you can find jQuery on:</p>
 <ul>
@@ -328,39 +332,38 @@ $.ajax({
 
     
 <div class="tip">
-    <h2 class="tip-title"><a href="/2014/09/repeating-string.html">Repeating string</a></h2>
+    <h2 class="tip-title"><a href="/2014/09/repeating-string-in-javascript.html">Repeating string in Javascript</a></h2>
+
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
+
     <ul class="tip-post-category">
     
         <li>javascript</li>
     
-        <li>php</li>
-    
     </ul>
-    <div class="tip-content">
-        <p>How to generate a string which is repeated by given string?</p>
 
-<h3>Javascript</h3>
+    <div class="tip-date">
+        <span>11 September 2014</span>
+    </div>
+
+    <div class="tip-content">
+        <p>How to generate a string which is repeated by given string in Javascript?</p>
+
 <pre><code class="javascript">var multiplier = 5,
     input      = 'a',
     output     = new Array(multiplier + 1).join(input);
 console.log(output);   // 'aaaaa'
 </code></pre>
-
-<h3>PHP</h3>
-<p>PHP provides a built-in <a href="http://php.net/manual/en/function.str-repeat.php">str_repeat</a> function:</p>
-<pre><code class="php">$multiplier = 5;
-$input      = 'a';
-$output     = str_repeat($input, $multiplier);
-echo $output;   // 'aaaaa'</code></pre>
     </div>
 </div>
     <div class="tip-hr"></div>
 
     
 <div class="tip">
-    <h2 class="tip-title"><a href="/2014/09/redirection-www-to-non-www.html">Redirection from www to non-www</a></h2>
+    <h2 class="tip-title"><a href="/2014/09/redirection-from-www-to-non-www.html">Redirection from www to non-www</a></h2>
+
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
+
     <ul class="tip-post-category">
     
         <li>nginx</li>
@@ -368,6 +371,11 @@ echo $output;   // 'aaaaa'</code></pre>
         <li>apache</li>
     
     </ul>
+
+    <div class="tip-date">
+        <span>10 September 2014</span>
+    </div>
+
     <div class="tip-content">
         <p>The following tip shows how to configure the web server redirecting your site from www to non-www domain and vice versa.</p>
 
@@ -429,7 +437,9 @@ RewriteRule ^(.*) http://www.%1/$1 [R=301,NE,L]</code></pre>
     
 <div class="tip">
     <h2 class="tip-title"><a href="/2014/09/swapping-variables.html">Swapping variables</a></h2>
+
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
+
     <ul class="tip-post-category">
     
         <li>javascript</li>
@@ -437,6 +447,11 @@ RewriteRule ^(.*) http://www.%1/$1 [R=301,NE,L]</code></pre>
         <li>php</li>
     
     </ul>
+
+    <div class="tip-date">
+        <span>06 September 2014</span>
+    </div>
+
     <div class="tip-content">
         <p>I want to swap two variables without using temporary one:</p>
 
@@ -461,7 +476,8 @@ console.log(a, b);  // 9 6</code></pre>
 
 <h3>PHP</h3>
 
-<pre><code class="php">$a = 'programmer';
+<pre><code class="php">&lt;?php
+$a = 'programmer';
 $b = 'tips';
 list($a, $b) = array($b, $a);
 echo $a;    // tips
@@ -469,10 +485,12 @@ echo $b;    // programmer</code></pre>
 
 <p>To swap two numbers in PHP, we can use the XOR operator:</p>
 
-<pre><code class="php">$a ^= $b ^= $a ^= $b;</code></pre>
+<pre><code class="php">&lt;?php
+$a ^= $b ^= $a ^= $b;</code></pre>
 
 <p>or simple math operators:</p>
-<pre><code class="php">$a = 5;
+<pre><code class="php">&lt;?php
+$a = 5;
 $b = 10;
 $a = $a + $b;
 $b = $a - $b;
