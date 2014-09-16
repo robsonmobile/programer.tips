@@ -13,7 +13,7 @@ layout: default
     {% endfor %}
     </ul>
 
-    <div class="tip-date">
+    <div class="tip-separator">
         <span>{{ page.date | date_to_long_string }}</span>
     </div>
 
@@ -25,6 +25,16 @@ layout: default
         {{ page.content }}
     </div>
 </div>
+
+<div class="tip-following">
+    Follow <img src="http://github.com/{{ page.author.github }}.png" /> {{ page.author.name }} on <a href="https://github.com/{{ page.author.github }}" title="@{{ page.author.github }}">Github</a>{% if page.author.twitter %}, <a href="https://twitter.com/{{ page.author.twitter }}" title="@{{ page.author.twitter }}">Twitter</a>{% endif %}</li>
+</div>
+
+<ul class="tip-sharing">
+    <li><iframe src="//www.facebook.com/plugins/like.php?href={{ site.url }}{{ page.url }}&send=false&layout=button_count&width=100&show_faces=false&action=like&colorscheme=light&font&height=21" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 100px; height: 21px;" allowTransparency="true"></iframe></li>
+    <li><a class="twitter-share-button" href="https://twitter.com/share" data-via="{{ site.twitter }}">Tweet</a></li>
+    <li><div class="g-plus" data-action="share" data-annotation="bubble"></div></li>
+</ul>
 
 <div class="tip-pagination">
     {% if page.previous.url %}
@@ -57,4 +67,11 @@ $(function() {
         });
     });
 });
+</script>
+<script>
+(function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
 </script>

@@ -17,6 +17,20 @@ iframe {
 .tip-list .tip-hr:last-child {
   border-top-color: transparent;
 }
+.tip-separator {
+  border-bottom: 1px solid #d4d4d4;
+  font-family: 'cardo';
+  font-size: 20px;
+  font-style: italic;
+  line-height: .1em;
+  margin: 20px auto 40px;
+  text-align: center;
+  width: 300px;
+}
+.tip-separator span {
+  background: #fff;
+  padding: 0 10px;
+}
 .tip-heading {
   background: #00A885;
   color: #fff;
@@ -125,20 +139,6 @@ iframe {
   display: inline-block;
   padding: 5px;
 }
-.tip-date {
-  border-bottom: 1px solid #d4d4d4;
-  font-family: 'cardo';
-  font-size: 20px;
-  font-style: italic;
-  line-height: .1em;
-  margin: 20px auto 40px;
-  text-align: center;
-  width: 300px;
-}
-.tip-date span {
-  background: #fff;
-  padding: 0 10px;
-}
 .tip-content {
   margin: 40px auto 0 auto;
   padding: 30px 0;
@@ -206,9 +206,31 @@ iframe {
 .tip-btn-edit:hover {
   color: #fff;
 }
+.tip-following {
+  font-family: 'cardo';
+  font-size: 25px;
+  font-style: italic;
+  padding: 20px 0;
+  text-align: center;
+}
+.tip-following img {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+.tip-sharing {
+  list-style-type: none;
+  padding: 20px 0;
+  text-align: center;
+}
+.tip-sharing li {
+  display: inline;
+  padding: 0 10x;
+}
 .tip-comment {
+  border-top: 1px solid #ddd;
   margin: 0 auto;
-  padding: 50px 0;
+  padding-bottom: 50px;
 }
 .tip-footer {
   border-top: 1px solid #dfdfdf;
