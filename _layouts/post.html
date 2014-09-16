@@ -4,15 +4,23 @@ layout: default
 
 <div class="tip">
     <h2 class="tip-title"><a href="{{ item.url }}">{{ page.title }}</a></h2>
+
     <p class="tip-avatar"><img src="http://github.com/{{ page.author.github }}.png" /></p>
+
     <ul class="tip-post-category">
     {% for category in page.categories %}
         <li>{{ category }}</li>
     {% endfor %}
     </ul>
+
+    <div class="tip-date">
+        <span>{{ page.date | date_to_long_string }}</span>
+    </div>
+
     <div class="text-center">
         <a href="{{ site.github.repos }}/blob/master/{{ page.path }}" class="btn tip-btn-edit">Improve it on Github</a>
     </div>
+
     <div class="tip-content">
         {{ page.content }}
     </div>

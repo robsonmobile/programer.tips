@@ -2,7 +2,7 @@
 layout:     post
 title:      Swapping variables
 categories: [javascript, php]
-date:       2014-09-04 11:50:00 +0700
+date:       2014-09-06 11:50:00 +0700
 author:
     github:  nghuuphuoc
     twitter: nghuuphuoc
@@ -32,7 +32,8 @@ console.log(a, b);  // 9 6</code></pre>
 
 <h3>PHP</h3>
 
-<pre><code class="php">$a = 'programmer';
+<pre><code class="php">&lt;?php
+$a = 'programmer';
 $b = 'tips';
 list($a, $b) = array($b, $a);
 echo $a;    // tips
@@ -40,10 +41,12 @@ echo $b;    // programmer</code></pre>
 
 <p>To swap two numbers in PHP, we can use the XOR operator:</p>
 
-<pre><code class="php">$a ^= $b ^= $a ^= $b;</code></pre>
+<pre><code class="php">&lt;?php
+$a ^= $b ^= $a ^= $b;</code></pre>
 
 <p>or simple math operators:</p>
-<pre><code class="php">$a = 5;
+<pre><code class="php">&lt;?php
+$a = 5;
 $b = 10;
 $a = $a + $b;
 $b = $a - $b;
