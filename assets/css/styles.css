@@ -9,6 +9,28 @@ body {
 iframe {
   border: none;
 }
+#carbonads {
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 180px;
+  margin: 0;
+  padding: 25px;
+  font-size: 10px;
+  z-index: 100;
+}
+#carbonads .carbon-text,
+#carbonads .carbon-poweredby {
+  display: block;
+  color: #999;
+  margin-top: 10px;
+}
+#carbonads .carbon-text:hover,
+#carbonads .carbon-poweredby:hover {
+  color: #08c;
+  text-decoration: none;
+}
 .tip-hr {
   margin: 20px 0;
   border-top: 1px solid #ccc;
