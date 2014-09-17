@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>
     
-        Submit new tip &middot; Programmer tips
+        Serving Bower components with ExpressJS &middot; Programmer tips
     
     </title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
@@ -69,38 +69,122 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="tip">
-    <h2 class="tip-title">Tip me</h2>
+    <h2 class="tip-title"><a href="">Serving Bower components with ExpressJS</a></h2>
+
+    <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
+
+    <ul class="tip-post-category">
+    
+        <li>nodejs</li>
+    
+    </ul>
+
+    <div class="tip-separator">
+        <span>13 September 2014</span>
+    </div>
+
+    <div class="text-center">
+        <a href="https://github.com/nghuuphuoc/programer.tips/blob/master/_posts/2014/09/2014-09-13-serving-bower-components-with-expressjs.html" class="btn tip-btn-edit">Improve it on Github</a>
+    </div>
+
     <div class="tip-content">
-        <p>If you have useful programming tip(s), feel free to submit by following the steps below:</p>
+        <p>Below is popular directory structure for a web application using the <a href="http://expressjs.com/">ExpressJS</a> framework.</p>
 
-        <ul class="list-unstyled">
-            <li>1. Fork the <a href="https://github.com/nghuuphuoc/programer.tips">project</a></li>
-            <li>
-                <p>2. Create a new file located at the directory <pre><code>_posts/{current_year}/{current_month}/</code></pre></p>
-                <p>The file must be named as <pre><code>{current_year}-{current_month}-{current-day}-{the-title-of-tip}.html</code></pre></p>
-            </li>
-            <li>3. The content of file follows the format shown as below:</li>
-        </ul>
+<pre><code>projectDir
+|
+├── bower_components
+|   ├── jquery
+|   └── ...
+├── public
+|   ├── css
+|   ├── js
+|   └── ...
+├── server
+├── app.js
+└── bower.json</code></pre>
 
-        <pre><code>---
-layout:     post
-title:      The title of tip
-categories: [the categories separated by a comma]
-date:       YYYY-MM-DD hh:mm:ss +timezone
-author:
-    github:  Your Github username
-    twitter: Your Twitter username
-    name:    Your full name
----
+<p>All the static assets such as CSS, JS, images are placed inside the <code>public</code> directory. Meanwhile, all <a href="http://bower.io/">Bower</a> components are located inside the <code>bower_components</code> directory.</p>
+<p>ExpressJS allows us to serve any files taken from Bower components directly as below:</p>
 
-The content of tip is HTML</code></pre>
+<pre><code class="javascript">// app.js
+app.use(express.static(__dirname + '/public'));
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));</code></pre>
 
-        <ul class="list-unstyled">
-            <li>4. Pull a new request</li>
-        </ul>
+<p>Now, it's possible to load both Bower components and your assets in the template:</p>
+
+<pre><code>&lt;!-- Load Bower components -->
+&lt;link href="/bower_components/..." rel="stylesheet" type="text/css">
+&lt;script src="/bower_components/...">&lt;/script>
+
+&lt;!-- Your assets -->
+&lt;link href="/css/..." rel="stylesheet" type="text/css">
+&lt;script src="/js/...">&lt;/script></code></pre>
+
+<h3>Changing Bower components directory</h3>
+
+<p>You can indicate the Bower components directory by setting the <a href="http://bower.io/docs/config/#directory">directory</a> option in the <a href="http://bower.io/docs/config/#bowerrc-specification">.bowerrc</a> file.</p>
+
+<pre><code>{
+    "directory": "/public/vendor"
+}</code></pre>
+
+<p>From now on, the Bower components are placed inside the <code>public/vendor</code> directory, and you don't need to ask ExpressJS to serve them.</p>
     </div>
 </div>
 
+<div class="tip-following">
+    Follow <img src="http://github.com/nghuuphuoc.png" /> Nguyen Huu Phuoc on <a href="https://github.com/nghuuphuoc" title="@nghuuphuoc">Github</a>, <a href="https://twitter.com/nghuuphuoc" title="@nghuuphuoc">Twitter</a></li>
+</div>
+
+<ul class="tip-sharing">
+    <li><iframe src="//www.facebook.com/plugins/like.php?href=http://programer.tips/2014/09/serving-bower-components-with-expressjs.html&send=false&layout=button_count&width=100&show_faces=false&action=like&colorscheme=light&font&height=21" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 100px; height: 21px;" allowTransparency="true"></iframe></li>
+    <li><a class="twitter-share-button" href="https://twitter.com/share" data-via="programertips">Tweet</a></li>
+    <li><div class="g-plus" data-action="share" data-annotation="bubble"></div></li>
+</ul>
+
+<div class="tip-pagination">
+    
+        <a href="/2014/09/best-jquery-practices.html" class="tip-pagination-older" title="Best jQuery practices">Previous</a>
+    
+
+    
+        <span class="tip-pagination-newer">Next</span>
+    
+</div>
+<div class="clearfix"></div>
+
+<div class="tip-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'programertips';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+</div>
+
+<script>
+$(function() {
+    $('.tip-content').find('h3, h4, h5, h6').each(function() {
+        var $this   = $(this),
+            id      = $this.html().toLowerCase().replace(/\s/g, '-'),
+            $anchor = $('<a/>').attr('href', '#' + id).html('#').hide().appendTo($this);
+        $this.attr('id', id);
+        $this.hover(function() {
+            $anchor.toggle();
+        });
+    });
+});
+</script>
+<script>
+(function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
+</script>
             </div>
         </div>
     </div>
