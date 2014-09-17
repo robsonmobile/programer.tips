@@ -56,7 +56,7 @@
                             <ul>
                                 <li><a href="https://twitter.com/programertips" title="Follow @programertips"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="https://github.com/nghuuphuoc/programer.tips" title="Fork on Github"><i class="fa fa-github"></i></a></li>
-                                <li><a href="/page/submit.html" title="Tip me"><i class="fa fa-share"></i></a></li>
+                                <li><a href="/submit.html" title="Tip me"><i class="fa fa-share"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -69,6 +69,42 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="tip-list">
+
+    
+<div class="tip">
+    <h2 class="tip-title"><a href="/2014/09/moving-cursor-in-macos-terminal.html">Moving cursor in MacOS terminal</a></h2>
+
+    <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
+
+    <ul class="tip-post-category">
+    
+        <li>macos</li>
+    
+    </ul>
+
+    <div class="tip-separator">
+        <span>14 September 2014</span>
+    </div>
+
+    <div class="tip-content">
+        <p>In MacOS terminal, it's usual to use the arrow key to move the mouse cursor to particular position.</p>
+<p>The tip here is that hold down the <kbd>option</kbd> (or <kbd>alt</kbd>) key and click at given position, the cursor is then moved to that.</p>
+
+<p class="text-center">
+    <img src="/assets/img/2014/09/moving-cursor.gif" alt="Moving cursor in MacOS terminal" />
+</p>
+
+<p>There are also some useful shortcuts:</p>
+<ul>
+    <li><kbd>control</kbd> + <kbd>A</kbd> or <kbd>shift</kbd> + <kbd>fn</kbd> + <kbd>left arrow</kbd>: Go to the beginning of current line</li>
+    <li><kbd>control</kbd> + <kbd>E</kbd> or <kbd>shift</kbd> + <kbd>fn</kbd> + <kbd>right arrow</kbd>: Go to the end of current line</li>
+    <li><kbd>control</kbd> + <kbd>B</kbd>: Go back a word</li>
+    <li><kbd>control</kbd> + <kbd>F</kbd>: Go forward a word</li>
+    <li><kbd>control</kbd> + <kbd>H</kbd>: Remove the previous word which has the same effect as the <kbd>delete</kbd> key</li>
+</ul>
+    </div>
+</div>
+    <div class="tip-hr"></div>
 
     
 <div class="tip">
@@ -503,76 +539,11 @@ RewriteRule ^(.*) http://www.%1/$1 [R=301,NE,L]</code></pre>
 </div>
     <div class="tip-hr"></div>
 
-    
-<div class="tip">
-    <h2 class="tip-title"><a href="/2014/09/swapping-variables.html">Swapping variables</a></h2>
-
-    <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
-
-    <ul class="tip-post-category">
-    
-        <li>javascript</li>
-    
-        <li>php</li>
-    
-    </ul>
-
-    <div class="tip-separator">
-        <span>06 September 2014</span>
-    </div>
-
-    <div class="tip-content">
-        <p>I want to swap two variables without using temporary one:</p>
-
-<pre><code class="javascript">var a = 'programmer', b = 'tips', temp;
-temp = a;
-a = b;
-b = temp;</code></pre>
-
-<h3>Javascript</h3>
-<pre><code class="javascript">var a = 'programmer', b = 'tips';
-b = [a, a = b][0];
-console.log(a, b);  // tips programmer</code></pre>
-
-<p>ECMAScript 6 provides a shorter and more easy to understand way:</p>
-
-<pre><code class="javascript">[a, b] = [b, a];</code></pre>
-
-<p>To swap two numbers, we can do:</p>
-<pre><code class="javascript">var a = 6, b = 9;
-a = b + (b=a, 0);
-console.log(a, b);  // 9 6</code></pre>
-
-<h3>PHP</h3>
-
-<pre><code class="php">&lt;?php
-$a = 'programmer';
-$b = 'tips';
-list($a, $b) = array($b, $a);
-echo $a;    // tips
-echo $b;    // programmer</code></pre>
-
-<p>To swap two numbers in PHP, we can use the XOR operator:</p>
-
-<pre><code class="php">&lt;?php
-$a ^= $b ^= $a ^= $b;</code></pre>
-
-<p>or simple math operators:</p>
-<pre><code class="php">&lt;?php
-$a = 5;
-$b = 10;
-$a = $a + $b;
-$b = $a - $b;
-$a = $a - $b;</code></pre>
-    </div>
-</div>
-    <div class="tip-hr"></div>
-
 </div>
 
 <div class="tip-pagination">
     
-        <span class="tip-pagination-older">Older</span>
+        <a href="/page/2" class="tip-pagination-older">Older</a>
     
 
     

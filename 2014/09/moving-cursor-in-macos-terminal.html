@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>
     
-        Serving Bower components with ExpressJS &middot; Programmer tips
+        Moving cursor in MacOS terminal &middot; Programmer tips
     
     </title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
@@ -69,66 +69,40 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="tip">
-    <h2 class="tip-title"><a href="">Serving Bower components with ExpressJS</a></h2>
+    <h2 class="tip-title"><a href="">Moving cursor in MacOS terminal</a></h2>
 
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
 
     <ul class="tip-post-category">
     
-        <li>nodejs</li>
+        <li>macos</li>
     
     </ul>
 
     <div class="tip-separator">
-        <span>13 September 2014</span>
+        <span>14 September 2014</span>
     </div>
 
     <div class="text-center">
-        <a href="https://github.com/nghuuphuoc/programer.tips/blob/master/_posts/2014/09/2014-09-13-serving-bower-components-with-expressjs.html" class="btn tip-btn-edit">Improve it on Github</a>
+        <a href="https://github.com/nghuuphuoc/programer.tips/blob/master/_posts/2014/09/2014-09-14-moving-cursor-in-macos-terminal.html" class="btn tip-btn-edit">Improve it on Github</a>
     </div>
 
     <div class="tip-content">
-        <p>Below is popular directory structure for a web application using the <a href="http://expressjs.com/">ExpressJS</a> framework.</p>
+        <p>In MacOS terminal, it's usual to use the arrow key to move the mouse cursor to particular position.</p>
+<p>The tip here is that hold down the <kbd>option</kbd> (or <kbd>alt</kbd>) key and click at given position, the cursor is then moved to that.</p>
 
-<pre><code>projectDir
-|
-├── bower_components
-|   ├── jquery
-|   └── ...
-├── public
-|   ├── css
-|   ├── js
-|   └── ...
-├── server
-├── app.js
-└── bower.json</code></pre>
+<p class="text-center">
+    <img src="/assets/img/2014/09/moving-cursor.gif" alt="Moving cursor in MacOS terminal" />
+</p>
 
-<p>All the static assets such as CSS, JS, images are placed inside the <code>public</code> directory. Meanwhile, all <a href="http://bower.io/">Bower</a> components are located inside the <code>bower_components</code> directory.</p>
-<p>ExpressJS allows us to serve any files taken from Bower components directly as below:</p>
-
-<pre><code class="javascript">// app.js
-app.use(express.static(__dirname + '/public'));
-app.use('/bower_components',  express.static(__dirname + '/bower_components'));</code></pre>
-
-<p>Now, it's possible to load both Bower components and your assets in the template:</p>
-
-<pre><code>&lt;!-- Load Bower components -->
-&lt;link href="/bower_components/..." rel="stylesheet" type="text/css">
-&lt;script src="/bower_components/...">&lt;/script>
-
-&lt;!-- Your assets -->
-&lt;link href="/css/..." rel="stylesheet" type="text/css">
-&lt;script src="/js/...">&lt;/script></code></pre>
-
-<h3>Changing Bower components directory</h3>
-
-<p>You can indicate the Bower components directory by setting the <a href="http://bower.io/docs/config/#directory">directory</a> option in the <a href="http://bower.io/docs/config/#bowerrc-specification">.bowerrc</a> file.</p>
-
-<pre><code>{
-    "directory": "/public/vendor"
-}</code></pre>
-
-<p>From now on, the Bower components are placed inside the <code>public/vendor</code> directory, and you don't need to ask ExpressJS to serve them.</p>
+<p>There are also some useful shortcuts:</p>
+<ul>
+    <li><kbd>control</kbd> + <kbd>A</kbd> or <kbd>shift</kbd> + <kbd>fn</kbd> + <kbd>left arrow</kbd>: Go to the beginning of current line</li>
+    <li><kbd>control</kbd> + <kbd>E</kbd> or <kbd>shift</kbd> + <kbd>fn</kbd> + <kbd>right arrow</kbd>: Go to the end of current line</li>
+    <li><kbd>control</kbd> + <kbd>B</kbd>: Go back a word</li>
+    <li><kbd>control</kbd> + <kbd>F</kbd>: Go forward a word</li>
+    <li><kbd>control</kbd> + <kbd>H</kbd>: Remove the previous word which has the same effect as the <kbd>delete</kbd> key</li>
+</ul>
     </div>
 </div>
 
@@ -137,18 +111,18 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));<
 </div>
 
 <ul class="tip-sharing">
-    <li><iframe src="//www.facebook.com/plugins/like.php?href=http://programer.tips/2014/09/serving-bower-components-with-expressjs.html&send=false&layout=button_count&width=100&show_faces=false&action=like&colorscheme=light&font&height=21" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 100px; height: 21px;" allowTransparency="true"></iframe></li>
+    <li><iframe src="//www.facebook.com/plugins/like.php?href=http://programer.tips/2014/09/moving-cursor-in-macos-terminal.html&send=false&layout=button_count&width=100&show_faces=false&action=like&colorscheme=light&font&height=21" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 100px; height: 21px;" allowTransparency="true"></iframe></li>
     <li><a class="twitter-share-button" href="https://twitter.com/share" data-via="programertips">Tweet</a></li>
     <li><div class="g-plus" data-action="share" data-annotation="bubble"></div></li>
 </ul>
 
 <div class="tip-pagination">
     
-        <a href="/2014/09/best-jquery-practices.html" class="tip-pagination-older" title="Best jQuery practices">Previous</a>
+        <a href="/2014/09/serving-bower-components-with-expressjs.html" class="tip-pagination-older" title="Serving Bower components with ExpressJS">Previous</a>
     
 
     
-        <a href="/2014/09/moving-cursor-in-macos-terminal.html" class="tip-pagination-newer" title="Moving cursor in MacOS terminal">Next</a>
+        <span class="tip-pagination-newer">Next</span>
     
 </div>
 <div class="clearfix"></div>

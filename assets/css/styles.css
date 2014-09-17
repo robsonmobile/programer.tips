@@ -164,6 +164,10 @@ iframe {
   margin-left: -20px;
   padding-left: 15px;
 }
+.tip-content img {
+  height: auto;
+  max-width: 100%;
+}
 .tip-pagination {
   margin-bottom: 40px;
   width: 100%;
