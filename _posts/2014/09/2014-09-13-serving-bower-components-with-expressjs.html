@@ -1,0 +1,52 @@
+---
+layout:     post
+title:      Serving Bower components with ExpressJS
+categories: [nodejs]
+date:       2014-09-13 11:20:00 +0700
+author:
+    github:  nghuuphuoc
+    twitter: nghuuphuoc
+    name:    Nguyen Huu Phuoc
+---
+
+<p>Below is popular directory structure for a web application using the <a href="http://expressjs.com/">ExpressJS</a> framework.</p>
+
+<pre><code>projectDir
+|
+├── bower_components
+|   ├── jquery
+|   └── ...
+├── public
+|   ├── css
+|   ├── js
+|   └── ...
+├── server
+├── app.js
+└── bower.json</code></pre>
+
+<p>All the static assets such as CSS, JS, images are placed inside the <code>public</code> directory. Meanwhile, all <a href="http://bower.io/">Bower</a> components are located inside the <code>bower_components</code> directory.</p>
+<p>ExpressJS allows us to serve any files taken from Bower components directly as below:</p>
+
+<pre><code class="javascript">// app.js
+app.use(express.static(__dirname + '/public'));
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));</code></pre>
+
+<p>Now, it's possible to load both Bower components and your assets in the template:</p>
+
+<pre><code>&lt;!-- Load Bower components -->
+&lt;link href="/bower_components/..." rel="stylesheet" type="text/css">
+&lt;script src="/bower_components/...">&lt;/script>
+
+&lt;!-- Your assets -->
+&lt;link href="/css/..." rel="stylesheet" type="text/css">
+&lt;script src="/js/...">&lt;/script></code></pre>
+
+<h3>Changing Bower components directory</h3>
+
+<p>You can indicate the Bower components directory by setting the <a href="http://bower.io/docs/config/#directory">directory</a> option in the <a href="http://bower.io/docs/config/#bowerrc-specification">.bowerrc</a> file.</p>
+
+<pre><code>{
+    "directory": "/public/vendor"
+}</code></pre>
+
+<p>From now on, the Bower components are placed inside the <code>public/vendor</code> directory, and you don't need to ask ExpressJS to serve them.</p>

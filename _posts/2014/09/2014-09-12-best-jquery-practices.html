@@ -29,6 +29,11 @@ author:
 </ul>
 
 <p>There are some good practices, not only for jQuery, but also for other CSS, JS libraries when loading them from CDN:</p>
+
+<p><strong>Provide a fallback version in your server if loading from CDN fails</strong></p>
+<pre><code>&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
+&lt;script>window.jQuery || document.write("&lt;script src='/vendor/jquery/jquery.min.js'>\x3C/script>");&lt;/script></code></pre>
+
 <p><strong>Choosing the compressed version</strong></p>
 <pre><code class="xml">&lt;!-- Don't -->
 &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js">&lt;/script>
@@ -93,6 +98,8 @@ $('li').each(function() {
         $this.addClass('active');
     });
 });</code></pre>
+
+<p>Someone prefer to use that or self. Don't forget to prefix with $ if it's jQuery object.</p>
 
 <h3>Caching jQuery objects</h3>
 <p>If a jQuery object is used multiple times, caching it will save the performance of script.</p>
