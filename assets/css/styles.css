@@ -276,7 +276,7 @@ iframe {
 .tip-comment {
   border-top: 1px solid #ddd;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding: 20px 0 40px 0;
 }
 .tip-footer {
   border-top: 1px solid #dfdfdf;

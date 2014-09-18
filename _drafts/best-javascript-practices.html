@@ -1,0 +1,82 @@
+---
+layout:     post
+title:      Best Javascript practices
+categories: [javascript]
+date:       2014-09-18 15:05:00 +0700
+author:
+    github:  nghuuphuoc
+    twitter: nghuuphuoc
+    name:    Nguyen Huu Phuoc
+---
+
+<p>This article belongs to the <strong>Best practices</strong> series. This time, I introduce the best practices for Javascript.</p>
+
+<h3>Do NOT use global variables</h3>
+<p>The variables here includes objects and functions. Since a web page might consist of many scripts, the global variables defined by a script can be overridden by other one.</p>
+
+<h3>Do NOT use eval()</h3>
+<blockquote>Eval is evil</blockquote>
+
+<h3>Self-executing functions</h3>
+
+<h3>Using === to compare variables</h3>
+
+<h3>Using shortcut notations</h3>
+
+<p>Using object literal instead of new Object():</p>
+<pre><code class="javascript">
+var post = new Object();
+post.title   = 'Best Javascript practices';
+post.date    = new Date();
+post.publish = function() {
+    ...
+};
+
+// Better
+var post = {
+    title: '..',
+    date: new Date(),
+    publish: function() {
+        ...
+    }
+};</code></pre>
+
+<p>Using [] for array:</p>
+<pre><code class="javascript">var languages = new Array();
+languages[0] = 'java';
+languages[1] = 'javascript';
+languages[2] = 'php';
+languages[3] = 'swift';
+
+// Better
+var languages = ['java', 'javascript', 'php', 'swift'];</code></pre>
+
+<p>Using ternary notation:</p>
+<pre><code class="javascript">var direction;
+if (option === 'up') {
+    direction = 1;
+} else {
+    direction = -1;
+}
+
+// Better
+var direction= (option === 'up') ? 1 : -1;</code></pre>
+
+<p>One more popular usage is to provide the default value for variable:</p>
+<pre><code class="javascript">if (err) {
+    message = err;
+} else {
+    message = 'The input is not valid';
+}
+
+// Better
+message = err || 'The input is not valid';</code></pre>
+
+<h3>Optimizing loops</h3>
+
+<h3>Placing scripts at the bottom of page</h3>
+
+<p>Lastly, you can use the script tag without defining the type attribute:</p>
+<pre><code>&lt;!-- We don't need to set type="text/javascript" -->
+&lt;script>...&lt;/script></code></pre>
+
