@@ -235,7 +235,15 @@ var $hidden = $('&lt;input/>')
                 .attr('type', 'hidden')
                 .attr('name', 'foo')
                 .val('bar')
-                .appendTo('#form');</code></pre>
+                .appendTo('#form');
+                    
+// Or
+var $hidden = $('&lt;input/>', {
+                    class: 'form-control',
+                    type: 'hidden',
+                    name: 'foo',
+                    value: 'bar'
+                }).appendTo('#form');</code></pre>
 
 <h3>Don't mix CSS with jQuery</h3>
 <p>Don't set the CSS styles for element directly. Using CSS class instead.</p>
@@ -344,6 +352,7 @@ $.ajax({
 <ul>
     <li><a href="http://learn.jquery.com/performance/optimize-selectors/">Optimize selectors</a></li>
 </ul>
+
     </div>
 </div>
 
@@ -351,6 +360,12 @@ $.ajax({
     Follow <img src="http://github.com/nghuuphuoc.png" /> Nguyen Huu Phuoc on <a href="https://github.com/nghuuphuoc" title="@nghuuphuoc">Github</a>, <a href="https://twitter.com/nghuuphuoc" title="@nghuuphuoc">Twitter</a></li>
 </div>
 
+
+<ul class="tip-contributors">
+    
+    <li><a href="https://github.com/nghuuphuoc/programer.tips/pull/1">#1</a> &mdash; <a href="https://github.com/matthewmorrone1" title="Follow @matthewmorrone1 on Github"><img src="http://github.com/matthewmorrone1.png" alt="@matthewmorrone1" /></a> added alternative method for creating element</li>
+    
+</ul>
 
 
 <ul class="tip-sharing">

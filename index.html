@@ -332,7 +332,15 @@ var $hidden = $('&lt;input/>')
                 .attr('type', 'hidden')
                 .attr('name', 'foo')
                 .val('bar')
-                .appendTo('#form');</code></pre>
+                .appendTo('#form');
+                    
+// Or
+var $hidden = $('&lt;input/>', {
+                    class: 'form-control',
+                    type: 'hidden',
+                    name: 'foo',
+                    value: 'bar'
+                }).appendTo('#form');</code></pre>
 
 <h3>Don't mix CSS with jQuery</h3>
 <p>Don't set the CSS styles for element directly. Using CSS class instead.</p>
@@ -441,6 +449,7 @@ $.ajax({
 <ul>
     <li><a href="http://learn.jquery.com/performance/optimize-selectors/">Optimize selectors</a></li>
 </ul>
+
     </div>
 </div>
     <div class="tip-hr"></div>
