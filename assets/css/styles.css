@@ -210,6 +210,20 @@ iframe {
   height: auto;
   max-width: 100%;
 }
+.tip-contributors {
+  border-top: 1px solid #eee;
+  padding: 0;
+}
+.tip-contributors li {
+  border-bottom: 1px solid #eee;
+  list-style-type: none;
+  padding: 5px 0;
+}
+.tip-contributors li img {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
 .tip-pagination {
   margin-bottom: 40px;
   width: 100%;
@@ -276,7 +290,7 @@ iframe {
 .tip-comment {
   border-top: 1px solid #ddd;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding: 20px 0 40px 0;
 }
 .tip-footer {
   border-top: 1px solid #dfdfdf;
