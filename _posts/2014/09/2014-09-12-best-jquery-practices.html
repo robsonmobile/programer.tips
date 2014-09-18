@@ -7,6 +7,11 @@ author:
     github:  nghuuphuoc
     twitter: nghuuphuoc
     name:    Nguyen Huu Phuoc
+contributors:
+    -
+        pr:     1
+        github: matthewmorrone1
+        title:  added alternative method for creating element
 ---
 
 <p>This post introduces best jQuery practices you should follow:</p>
@@ -141,7 +146,7 @@ $('#about')
 var $hidden = $('&lt;input class="form-control" type="hidden" name="foo" value="bar" />').appendTo('#form');
 
 // Do
-var $hidden = $('<input/>')
+var $hidden = $('&lt;input/>')
                 .addClass('form-control')
                 .attr('type', 'hidden')
                 .attr('name', 'foo')
@@ -149,14 +154,12 @@ var $hidden = $('<input/>')
                 .appendTo('#form');
                     
 // Or
-var $hidden = $('<input/>' {
-                    class: 'form-control', 
-                    type: 'hidden', 
-                    name: 'foo', 
+var $hidden = $('&lt;input/>', {
+                    class: 'form-control',
+                    type: 'hidden',
+                    name: 'foo',
                     value: 'bar'
                 }).appendTo('#form');</code></pre>
-                
-                
 
 <h3>Don't mix CSS with jQuery</h3>
 <p>Don't set the CSS styles for element directly. Using CSS class instead.</p>
