@@ -54,8 +54,8 @@ iframe {
   padding: 0 10px;
 }
 .tip-heading {
-  background: #00A885;
-  color: #fff;
+  background: #1ABC9C;
+  color: #FFF;
   padding: 100px 0 40px 0;
   text-align: center;
 }
@@ -69,6 +69,7 @@ iframe {
   text-decoration: none;
 }
 .tip-heading span {
+  color: #eee;
   font: 800 50px/80px 'open sans';
   font-style: normal;
   text-transform: uppercase;
@@ -90,6 +91,22 @@ iframe {
   font-family: 'cardo';
   font-size: 30px;
   font-style: italic;
+}
+.tip-subscribe {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+.tip-subscribe form {
+  margin: 0 auto;
+  width: 350px;
+  text-align: center;
+}
+.tip-subscribe button {
+  background-color: #44b1f6;
+  color: #fff;
+}
+.tip-subscribe button:hover {
+  color: #fff;
 }
 .tip-nav {
   text-align: center;
@@ -115,6 +132,9 @@ iframe {
 }
 .tip-nav i {
   font-size: 40px;
+}
+.tip-nav a {
+  color: #e9e9e9;
 }
 .tip-quote {
   padding: 0 20px;
