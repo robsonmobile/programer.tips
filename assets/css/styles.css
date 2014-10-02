@@ -31,6 +31,9 @@ iframe {
   color: #08c;
   text-decoration: none;
 }
+.video-js {
+  margin: 20px auto;
+}
 .tip-hr {
   margin: 20px 0;
   border-top: 1px solid #ccc;

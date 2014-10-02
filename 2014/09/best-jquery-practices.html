@@ -24,6 +24,7 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400|Open+Sans:300,400,600,700,800|Gentium+Book+Basic:400,400italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Cardo:400,400italic,700" rel="stylesheet" type="text/css">
     <link href="/vendor/highlight/styles/github.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/video-js/video-js.min.css" rel="stylesheet" type="text/css">
     <link href="/assets/css/styles.css" rel="stylesheet" type="text/css">
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -37,6 +38,10 @@
     ga('send', 'pageview');
     </script>
     
+    <script src="/vendor/video-js/video.js"></script>
+    <script>
+    videojs.options.flash.swf = '/vendor/video-js/video-js.swf';
+    </script>
 </head>
 <body>
     <header>
@@ -447,6 +452,7 @@ window.twttr = (function (d,s,id) {
 </script>
 <script>
 $(function() {
+    // Highlight the sample code
     hljs.initHighlightingOnLoad();
 
     var tips    = ['tips', 'tricks', 'best practices'],
