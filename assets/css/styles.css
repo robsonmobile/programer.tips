@@ -32,6 +32,7 @@ iframe {
   text-decoration: none;
 }
 .video-js {
+  background-color: transparent;
   margin: 20px auto;
 }
 .tip-hr {
@@ -210,8 +211,12 @@ iframe {
   padding-left: 15px;
 }
 .tip-content img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
   height: auto;
   max-width: 100%;
+  margin: 20px 0;
+  padding: 4px;
 }
 .tip-contributors {
   border-top: 1px solid #eee;
