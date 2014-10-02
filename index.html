@@ -87,6 +87,72 @@
 
     
 <div class="tip">
+    <h2 class="tip-title"><a href="/2014/09/inspecting-given-element-with-chrome-dev-tools.html">Inspecting given element with Chrome Dev Tools</a></h2>
+
+    <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
+
+    <ul class="tip-post-category">
+    
+        <li>dev tools</li>
+    
+    </ul>
+
+    <div class="tip-separator">
+        <span>12 September 2014</span>
+    </div>
+
+    <div class="tip-content">
+        <p>Inspecting a particular element in web browsers is one of most frequent task of front-end developers. By doing that, we then can adjust its styles, drag and drop it to desired position, and various tasks.</p>
+<p>Sometime, we need to access the element instance in Console, for example, to call a jQuery plugin method. It can be done easily if the element can be queried via a simple CSS selector.</p>
+<p>The question is <strong>How to do that if the element is just a general one in page?</strong></p>
+
+<p>Fortunately, <a href="https://developer.chrome.com/devtools">Chrome Developer Tools</a> provides the ability of accessing selected element in simple steps:</p>
+<ul>
+    <li>Right click the element, and choose <strong>Inspect Element</strong> from the context menu</li>
+    <li>Click the <strong>Console</strong> tab</li>
+    <li>Then you can retrieve the element instance as $0</li>
+</ul>
+<p>After that, if the page uses <a href="http://jquery.com">jQuery</a>, you can call any jQuery methods to manipulate the DOM element.</p>
+
+<p>The following video demonstrates this process:</p>
+<video class="video-js vjs-default-skin vjs-big-play-centered"
+    controls
+    preload="auto"
+    width="740"
+    height="600"
+    data-setup="{}"
+    poster="https://s3.amazonaws.com/programertips/2014/09/inspecting-given-element.png">
+    <source src="https://s3.amazonaws.com/programertips/2014/09/inspecting-given-element.mp4" type="video/mp4" />
+</video>
+
+<p>As seen in the video, $0 is the selected element, and $($0) is the jQuery object representing the element.</p>
+<p>If jQuery is not available on page, then</p>
+<ul>
+    <li>$() is equivalent to <code>document.querySelector()</code> which returns the first element that matches the passed CSS selector.</li>
+    <li>$$() returns an array of all matching elements, which is the same as what <code>document.querySelectorAll()</code> returns.</li>
+</ul>
+
+<p>Not only the last selected element, Chrome Developer Tools also remembers the last five inspected one, and make them accessible in Console as $0, $1, $2, $3 and $4. The most recently selected element is $0, the second most is $1, and so forth.</p>
+
+<h3>Opening element from the Console</h3>
+<p>In the reverse direction, you can inspect the element from the Console by either right-clicking the output of $0, and choosing <strong>Reveal in Elements panel</strong>, or using the command <code>inspect($0)</code>:</p>
+
+<p class="text-center">
+    <img src="https://s3.amazonaws.com/programertips/2014/09/reveal-element.png" />
+</p>
+
+<p>The element is then opened in the <strong>Elements</strong> panel.</p>
+
+<h3>What about Firefox?</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Tools">Firefox Developer Tools</a> also provides the same capability, but it's only possible to access the last selected element as $0.</p>
+<p>$(), $$() and inspect() <a href="https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Helper_commands">helpers</a> are the same as Chrome Developer Tools.</p>
+
+    </div>
+</div>
+    <div class="tip-hr"></div>
+
+    
+<div class="tip">
     <h2 class="tip-title"><a href="/2014/09/moving-cursor-in-macos-terminal.html">Moving cursor in MacOS terminal</a></h2>
 
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
@@ -489,82 +555,6 @@ $.ajax({
     output     = new Array(multiplier + 1).join(input);
 console.log(output);   // 'aaaaa'
 </code></pre>
-    </div>
-</div>
-    <div class="tip-hr"></div>
-
-    
-<div class="tip">
-    <h2 class="tip-title"><a href="/2014/09/redirection-from-www-to-non-www.html">Redirection from www to non-www</a></h2>
-
-    <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
-
-    <ul class="tip-post-category">
-    
-        <li>nginx</li>
-    
-        <li>apache</li>
-    
-    </ul>
-
-    <div class="tip-separator">
-        <span>07 September 2014</span>
-    </div>
-
-    <div class="tip-content">
-        <p>The following tip shows how to configure the web server redirecting your site from www to non-www domain and vice versa.</p>
-
-<h3>Nginx</h3>
-<pre><code class="nginx"># Redirect www to non-www
-server {
-    listen      80;
-    server_name www.example.com;
-    rewrite     ^/(.*)$ http://example.com/$1 permanent;
-}
-
-# Redirect non-www to www
-server {
-    listen      80;
-    server_name example.com;
-    rewrite     ^/(.*)$ http://www.example.com/$1 permanent;
-}</code></pre>
-
-<h3>Apache</h3>
-
-<p>Using VirtualHost setting:</p>
-
-<pre><code class="apache"># Redirect www to non-www
-&lt;VirtualHost *:80>
-    ServerName example.com
-    ...
-&lt;/VirtualHost>
-
-&lt;VirtualHost *:80>
-    ServerName www.example.com
-    Redirect permanent / http://example.com/
-&lt;/VirtualHost></code></pre>
-
-<pre><code class="apache"># Redirect non-www to www
-&lt;VirtualHost *:80>
-    ServerName www.example.com
-    ...
-&lt;/VirtualHost>
-
-&lt;VirtualHost *:80>
-    ServerName example.com
-    Redirect permanent / http://www.example.com/
-&lt;/VirtualHost></code></pre>
-
-<p>Using .htaccess file:</p>
-<pre><code class="apache"># Redirect www to non-www
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
-
-# Redirect non-www to www
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^(?!www\.)(.+) [NC]
-RewriteRule ^(.*) http://www.%1/$1 [R=301,NE,L]</code></pre>
     </div>
 </div>
     <div class="tip-hr"></div>

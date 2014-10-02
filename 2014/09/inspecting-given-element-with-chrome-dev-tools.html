@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Daily tips, tricks and best practices for programmers &middot; Programmer Tips</title>
+    <title>Inspecting given element with Chrome Dev Tools &middot; Programmer Tips</title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -83,163 +83,129 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=programertips" id="_carbonads_js"></script>
-                <div class="tip-list">
-
-    
-<div class="tip">
-    <h2 class="tip-title"><a href="/2014/09/redirection-from-www-to-non-www.html">Redirection from www to non-www</a></h2>
+                <div class="tip">
+    <h2 class="tip-title"><a href="">Inspecting given element with Chrome Dev Tools</a></h2>
 
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
 
     <ul class="tip-post-category">
     
-        <li>nginx</li>
-    
-        <li>apache</li>
+        <li>dev tools</li>
     
     </ul>
 
     <div class="tip-separator">
-        <span>07 September 2014</span>
+        <span>12 September 2014</span>
+    </div>
+
+    <div class="text-center">
+        <a href="https://github.com/nghuuphuoc/programer.tips/blob/master/_posts/2014/09/2014-09-12-inspecting-given-element-with-chrome-dev-tools.html" class="btn tip-btn-edit">Improve it on Github</a>
     </div>
 
     <div class="tip-content">
-        <p>The following tip shows how to configure the web server redirecting your site from www to non-www domain and vice versa.</p>
+        <p>Inspecting a particular element in web browsers is one of most frequent task of front-end developers. By doing that, we then can adjust its styles, drag and drop it to desired position, and various tasks.</p>
+<p>Sometime, we need to access the element instance in Console, for example, to call a jQuery plugin method. It can be done easily if the element can be queried via a simple CSS selector.</p>
+<p>The question is <strong>How to do that if the element is just a general one in page?</strong></p>
 
-<h3>Nginx</h3>
-<pre><code class="nginx"># Redirect www to non-www
-server {
-    listen      80;
-    server_name www.example.com;
-    rewrite     ^/(.*)$ http://example.com/$1 permanent;
-}
+<p>Fortunately, <a href="https://developer.chrome.com/devtools">Chrome Developer Tools</a> provides the ability of accessing selected element in simple steps:</p>
+<ul>
+    <li>Right click the element, and choose <strong>Inspect Element</strong> from the context menu</li>
+    <li>Click the <strong>Console</strong> tab</li>
+    <li>Then you can retrieve the element instance as $0</li>
+</ul>
+<p>After that, if the page uses <a href="http://jquery.com">jQuery</a>, you can call any jQuery methods to manipulate the DOM element.</p>
 
-# Redirect non-www to www
-server {
-    listen      80;
-    server_name example.com;
-    rewrite     ^/(.*)$ http://www.example.com/$1 permanent;
-}</code></pre>
+<p>The following video demonstrates this process:</p>
+<video class="video-js vjs-default-skin vjs-big-play-centered"
+    controls
+    preload="auto"
+    width="740"
+    height="600"
+    data-setup="{}"
+    poster="https://s3.amazonaws.com/programertips/2014/09/inspecting-given-element.png">
+    <source src="https://s3.amazonaws.com/programertips/2014/09/inspecting-given-element.mp4" type="video/mp4" />
+</video>
 
-<h3>Apache</h3>
+<p>As seen in the video, $0 is the selected element, and $($0) is the jQuery object representing the element.</p>
+<p>If jQuery is not available on page, then</p>
+<ul>
+    <li>$() is equivalent to <code>document.querySelector()</code> which returns the first element that matches the passed CSS selector.</li>
+    <li>$$() returns an array of all matching elements, which is the same as what <code>document.querySelectorAll()</code> returns.</li>
+</ul>
 
-<p>Using VirtualHost setting:</p>
+<p>Not only the last selected element, Chrome Developer Tools also remembers the last five inspected one, and make them accessible in Console as $0, $1, $2, $3 and $4. The most recently selected element is $0, the second most is $1, and so forth.</p>
 
-<pre><code class="apache"># Redirect www to non-www
-&lt;VirtualHost *:80>
-    ServerName example.com
-    ...
-&lt;/VirtualHost>
+<h3>Opening element from the Console</h3>
+<p>In the reverse direction, you can inspect the element from the Console by either right-clicking the output of $0, and choosing <strong>Reveal in Elements panel</strong>, or using the command <code>inspect($0)</code>:</p>
 
-&lt;VirtualHost *:80>
-    ServerName www.example.com
-    Redirect permanent / http://example.com/
-&lt;/VirtualHost></code></pre>
+<p class="text-center">
+    <img src="https://s3.amazonaws.com/programertips/2014/09/reveal-element.png" />
+</p>
 
-<pre><code class="apache"># Redirect non-www to www
-&lt;VirtualHost *:80>
-    ServerName www.example.com
-    ...
-&lt;/VirtualHost>
+<p>The element is then opened in the <strong>Elements</strong> panel.</p>
 
-&lt;VirtualHost *:80>
-    ServerName example.com
-    Redirect permanent / http://www.example.com/
-&lt;/VirtualHost></code></pre>
+<h3>What about Firefox?</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Tools">Firefox Developer Tools</a> also provides the same capability, but it's only possible to access the last selected element as $0.</p>
+<p>$(), $$() and inspect() <a href="https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Helper_commands">helpers</a> are the same as Chrome Developer Tools.</p>
 
-<p>Using .htaccess file:</p>
-<pre><code class="apache"># Redirect www to non-www
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
-
-# Redirect non-www to www
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^(?!www\.)(.+) [NC]
-RewriteRule ^(.*) http://www.%1/$1 [R=301,NE,L]</code></pre>
     </div>
 </div>
-    <div class="tip-hr"></div>
 
-    
-<div class="tip">
-    <h2 class="tip-title"><a href="/2014/09/swapping-variables.html">Swapping variables</a></h2>
-
-    <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
-
-    <ul class="tip-post-category">
-    
-        <li>javascript</li>
-    
-        <li>php</li>
-    
-    </ul>
-
-    <div class="tip-separator">
-        <span>06 September 2014</span>
-    </div>
-
-    <div class="tip-content">
-        <p>I want to swap two variables without using temporary one:</p>
-
-<pre><code class="javascript">var a = 'programmer', b = 'tips', temp;
-temp = a;
-a = b;
-b = temp;</code></pre>
-
-<h3>Javascript</h3>
-<pre><code class="javascript">var a = 'programmer', b = 'tips';
-b = [a, a = b][0];
-console.log(a, b);  // tips programmer</code></pre>
-
-<p>ECMAScript 6 provides a shorter and more easy to understand way:</p>
-
-<pre><code class="javascript">[a, b] = [b, a];</code></pre>
-
-<p>To swap two numbers, we can do:</p>
-<pre><code class="javascript">var a = 6, b = 9;
-a = b + (b=a, 0);
-console.log(a, b);  // 9 6</code></pre>
-
-<h3>PHP</h3>
-
-<pre><code class="php">&lt;?php
-$a = 'programmer';
-$b = 'tips';
-list($a, $b) = array($b, $a);
-echo $a;    // tips
-echo $b;    // programmer</code></pre>
-
-<p>To swap two numbers in PHP, we can use the XOR operator:</p>
-
-<pre><code class="php">&lt;?php
-$a ^= $b ^= $a ^= $b;</code></pre>
-
-<p>or simple math operators:</p>
-<pre><code class="php">&lt;?php
-$a = 5;
-$b = 10;
-$a = $a + $b;
-$b = $a - $b;
-$a = $a - $b;</code></pre>
-    </div>
+<div class="tip-following">
+    Follow <img src="http://github.com/nghuuphuoc.png" /> Nguyen Huu Phuoc on <a href="https://github.com/nghuuphuoc" title="@nghuuphuoc">Github</a>, <a href="https://twitter.com/nghuuphuoc" title="@nghuuphuoc">Twitter</a></li>
 </div>
-    <div class="tip-hr"></div>
 
-</div>
+
+
+<ul class="tip-sharing">
+    <li><iframe src="//www.facebook.com/plugins/like.php?href=http://programer.tips/2014/09/inspecting-given-element-with-chrome-dev-tools.html&send=false&layout=button_count&width=100&show_faces=false&action=like&colorscheme=light&font&height=21" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 100px; height: 21px;" allowTransparency="true"></iframe></li>
+    <li><a class="twitter-share-button" href="https://twitter.com/share" data-via="programertips">Tweet</a></li>
+    <li><div class="g-plus" data-action="share" data-annotation="bubble"></div></li>
+</ul>
 
 <div class="tip-pagination">
     
-        <span class="tip-pagination-older">Older</span>
+        <a href="/2014/09/moving-cursor-in-macos-terminal.html" class="tip-pagination-older" title="Moving cursor in MacOS terminal">Previous</a>
     
 
     
-        
-            <a href="/" class="tip-pagination-newer">Newer</a>
-        
+        <span class="tip-pagination-newer">Next</span>
     
 </div>
 <div class="clearfix"></div>
+
+<div class="tip-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'programertips';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+</div>
+
+<script>
+$(function() {
+    $('.tip-content').find('h3, h4, h5, h6').each(function() {
+        var $this   = $(this),
+            id      = $this.html().toLowerCase().replace(/\s/g, '-').replace(/\?/g, ''),
+            $anchor = $('<a/>').attr('href', '#' + id).html('#').hide().appendTo($this);
+        $this.attr('id', id);
+        $this.hover(function() {
+            $anchor.toggle();
+        });
+    });
+});
+</script>
+<script>
+(function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
+</script>
             </div>
         </div>
     </div>

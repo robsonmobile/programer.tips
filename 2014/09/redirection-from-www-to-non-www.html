@@ -200,7 +200,7 @@ var disqus_shortname = 'programertips';
 $(function() {
     $('.tip-content').find('h3, h4, h5, h6').each(function() {
         var $this   = $(this),
-            id      = $this.html().toLowerCase().replace(/\s/g, '-'),
+            id      = $this.html().toLowerCase().replace(/\s/g, '-').replace(/\?/g, ''),
             $anchor = $('<a/>').attr('href', '#' + id).html('#').hide().appendTo($this);
         $this.attr('id', id);
         $this.hover(function() {
