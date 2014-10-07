@@ -1,0 +1,47 @@
+---
+layout:     post
+title:      Inspecting tooltip element
+categories: [dev tools]
+date:       2014-09-13 14:55:00 +0700
+author:
+    github:  nghuuphuoc
+    twitter: nghuuphuoc
+    name:    Nguyen Huu Phuoc
+---
+
+<p>It's easy and convenient to inspect given element on a page by using the Developer Tools provided by most popular browsers.</p>
+<p>In the life of being a front-end developer, we often need to inspect a dynamic element which is generated on the fly. A tooltip, popover, or sub-menu are popular examples.</p>
+<p>These elements are shown when moving the mouse over a particular one. Whenever we try to hover the element, it disappears.</p>
+
+<p>The tip I am going to give you today will help you inspect these kind of elements.</p>
+<p>First, assume that we need to inspect a <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap tooltip</a>, one of components provided by the popular <a href="http://getbootstrap.com">Bootstrap</a> library.</p>
+<p>Here are step by step instructions using the <a href="https://developer.chrome.com/devtools">Chrome Developer Tools</a>:</p>
+<ul>
+    <li>Right-click the element which generates the tooltip, click <strong>Inspect Element</strong> from the context menu</li>
+    <li>Click the <strong>Console</strong> tab</li>
+    <li>In the <strong>Console</strong> window, type $0 to get the selected element</li>
+</ul>
+
+<blockquote>If it's the first time you have heard about $0, please look at the <a href="/2014/09/inspecting-given-element-with-chrome-dev-tools.html">Inspecting given element with Chrome Dev Tools</a> tip.</blockquote>
+
+<ul>
+    <li>Now, we can ask the tooltip to be shown up without hovering the select element by either triggering the mouseover event:</li>
+</ul>
+
+<pre><code class="javascript">$($0).trigger('mouseover');</code></pre>
+
+<p>or call the API showing the tooltip:</p>
+<pre><code class="javascript">$($0).tooltip('show');</code></pre>
+
+<p>The following video shows the steps we have done above:</p>
+<video class="video-js vjs-default-skin vjs-big-play-centered"
+    controls
+    preload="auto"
+    width="740"
+    height="600"
+    data-setup="{}"
+    poster="https://s3.amazonaws.com/programertips/2014/09/inspecting-tooltip-element.png">
+    <source src="https://s3.amazonaws.com/programertips/2014/09/inspecting-tooltip-element.mp4" type="video/mp4" />
+</video>
+
+<p>This tip uses <a href="https://developer.chrome.com/devtools">Chrome Developer Tools</a> to demonstrate the steps, but it can be done with <a href="https://developer.mozilla.org/en-US/docs/Tools">Firefox Developer Tools</a> too.</p>
