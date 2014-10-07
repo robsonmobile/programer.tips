@@ -107,7 +107,7 @@
 <p>These elements are shown when moving the mouse over a particular one. Whenever we try to hover the element, it disappears.</p>
 
 <p>The tip I am going to give you today will help you inspect these kind of elements.</p>
-<p>First, assume that we need to inspect a <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap tooltip</a>, one of components provided by the popular <a href="http://getbootstrap.com">Bootstrap</a> library.</p>
+<p>To keep the demonstration simple and easy to follow, I assume that we need to inspect a <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap tooltip</a>, one of components provided by the popular <a href="http://getbootstrap.com">Bootstrap</a> library.</p>
 <p>Here are step by step instructions using the <a href="https://developer.chrome.com/devtools">Chrome Developer Tools</a>:</p>
 <ul>
     <li>Right-click the element which generates the tooltip, click <strong>Inspect Element</strong> from the context menu</li>
@@ -123,7 +123,7 @@
 
 <pre><code class="javascript">$($0).trigger('mouseover');</code></pre>
 
-<p>or call the API showing the tooltip:</p>
+<p>or calling the API showing the tooltip:</p>
 <pre><code class="javascript">$($0).tooltip('show');</code></pre>
 
 <p>The following video shows the steps we have done above:</p>
@@ -138,6 +138,7 @@
 </video>
 
 <p>This tip uses <a href="https://developer.chrome.com/devtools">Chrome Developer Tools</a> to demonstrate the steps, but it can be done with <a href="https://developer.mozilla.org/en-US/docs/Tools">Firefox Developer Tools</a> too.</p>
+<p>By using the same approach, you can inspect not only <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap tooltip</a> but also most of tooltip, popover or sub-menu elements.</p>
     </div>
 </div>
     <div class="tip-hr"></div>
