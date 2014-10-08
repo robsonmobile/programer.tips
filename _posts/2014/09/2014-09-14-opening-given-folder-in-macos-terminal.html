@@ -1,0 +1,52 @@
+---
+layout:     post
+title:      Opening given folder in the MacOS Terminal
+categories: [macos]
+date:       2014-09-14 15:00:00 +0700
+author:
+    github:  nghuuphuoc
+    twitter: nghuuphuoc
+    name:    Nguyen Huu Phuoc
+---
+
+<p>No matter who you are, a developer, database administrator or system engineer, Terminal might be one of the tools you've been working with most.</p>
+<p>For example, to the front-end developers, we usually need to run the building <a href="http://gruntjs.com">GruntJS</a> or <a href="http://gulpjs.com">GulpJS</a> scripts, start an <a href="http://expressjs.com">ExpressJS</a> application right from the Terminal.</p>
+<p>These tasks have a common starting point which is to be executed from given directory.</p>
+
+<p>Today, I will show you two quick ways to open particular directory in the MacOS Terminal without using any additional software, scripts or workflow.</p>
+
+<h3>Adding the New Termnial at Folder menu</h3>
+<ul>
+    <li>Open the <strong>System Preferences</strong></li>
+    <li>Click the <strong>Keyboard</strong>, and choose the <strong>Shortcuts</strong> tab</li>
+    <li>Choose <strong>Services</strong> from the left, and then enable the <strong>New Terminal at Folder</strong> option from the right</li>
+</ul>
+
+<p>You also can click <strong>add shortcut</strong> button to define the shortcut.</p>
+<p class="text-center">
+    <img src="https://s3.amazonaws.com/programertips/2014/09/new-terminal-folder.png" alt="Enable New Termnial at Folder menu" />
+</p>
+
+<p>From now on, in order to open a folder in Terminal, just right-click the folder, and choose <strong>Service</strong> &rarr; <strong>New Terminal at Folder</strong>.</p>
+
+<h3>Dragging the folder into the Terminal</h3>
+<p>This way is more convenient than the first one. Just hold down the <kbd>command</kbd> key and drag the folder into the Terminal. That's all. How easy it is!</p>
+
+<video
+    class="video-js vjs-default-skin vjs-big-play-centered"
+    controls
+    preload="auto"
+    data-setup='{ "width": 746, "height": 546 }'
+    poster="https://s3.amazonaws.com/programertips/2014/09/dragging-folder-terminal.png">
+    <source src="https://s3.amazonaws.com/programertips/2014/09/dragging-folder-terminal.mp4" type="video/mp4" />
+</video>
+
+<p>By doing this, you don't even to worry if the path to folder consists of spaces. The system automatically add \ characters to quote the path for you.</p>
+<p>For instance, dragging <code>/Library/Application Support/App Store</code> into the Terminal will execute the command:</p>
+<pre><code>$ cd /Library/Application\ Support/App\ Store</code></pre>
+
+<h3>What about Windows?</h3>
+<p>On Windows, the job can be done easily by holding down the <kbd>Shift</kbd> key, and choose <strong>Open command window here</strong>.</p>
+<p class="text-center">
+    <img src="https://s3.amazonaws.com/programertips/2014/09/open-command-window-here.png" alt="Open command window here" />
+</p>
