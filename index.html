@@ -87,6 +87,68 @@
 
     
 <div class="tip">
+    <h2 class="tip-title"><a href="/2014/09/opening-given-folder-in-macos-terminal.html">Opening given folder in the MacOS Terminal</a></h2>
+
+    <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
+
+    <ul class="tip-post-category">
+    
+        <li>macos</li>
+    
+    </ul>
+
+    <div class="tip-separator">
+        <span>14 September 2014</span>
+    </div>
+
+    <div class="tip-content">
+        <p>No matter who you are, a developer, database administrator or system engineer, Terminal might be one of the tools you've been working with most.</p>
+<p>For example, to the front-end developers, we usually need to run the building <a href="http://gruntjs.com">GruntJS</a> or <a href="http://gulpjs.com">GulpJS</a> scripts, start an <a href="http://expressjs.com">ExpressJS</a> application right from the Terminal.</p>
+<p>These tasks have a common starting point which is to be executed from given directory.</p>
+
+<p>Today, I will show you two quick ways to open particular directory in the MacOS Terminal without using any additional software, scripts or workflow.</p>
+
+<h3>Adding the New Termnial at Folder menu</h3>
+<ul>
+    <li>Open the <strong>System Preferences</strong></li>
+    <li>Click the <strong>Keyboard</strong>, and choose the <strong>Shortcuts</strong> tab</li>
+    <li>Choose <strong>Services</strong> from the left, and then enable the <strong>New Terminal at Folder</strong> option from the right</li>
+</ul>
+
+<p>You also can click <strong>add shortcut</strong> button to define the shortcut.</p>
+<p class="text-center">
+    <img src="https://s3.amazonaws.com/programertips/2014/09/new-terminal-folder.png" alt="Enable New Termnial at Folder menu" />
+</p>
+
+<p>From now on, in order to open a folder in Terminal, just right-click the folder, and choose <strong>Service</strong> &rarr; <strong>New Terminal at Folder</strong>.</p>
+
+<h3>Dragging the folder into the Terminal</h3>
+<p>This way is more convenient than the first one. Just hold down the <kbd>command</kbd> key and drag the folder into the Terminal. That's all. How easy it is!</p>
+
+<video
+    class="video-js vjs-default-skin vjs-big-play-centered"
+    controls
+    preload="auto"
+    data-setup='{ "width": 746, "height": 546 }'
+    poster="https://s3.amazonaws.com/programertips/2014/09/dragging-folder-terminal.png">
+    <source src="https://s3.amazonaws.com/programertips/2014/09/dragging-folder-terminal.mp4" type="video/mp4" />
+</video>
+
+<p>By doing this, you don't even to worry if the path to folder consists of spaces. The system automatically add \ characters to quote the path for you.</p>
+<p>For instance, dragging <code>/Library/Application Support/App Store</code> into the Terminal will execute the command:</p>
+<pre><code>$ cd /Library/Application\ Support/App\ Store</code></pre>
+
+<h3>What about Windows?</h3>
+<p>On Windows, the job can be done easily by holding down the <kbd>Shift</kbd> key, and choose <strong>Open command window here</strong>.</p>
+<p class="text-center">
+    <img src="https://s3.amazonaws.com/programertips/2014/09/open-command-window-here.png" alt="Open command window here" />
+</p>
+    </div>
+</div>
+    <div class="tip-hr"></div>
+
+    
+<div class="tip">
     <h2 class="tip-title"><a href="/2014/09/inspecting-tooltip-element.html">Inspecting tooltip element</a></h2>
 
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
@@ -305,282 +367,6 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));<
 }</code></pre>
 
 <p>From now on, the Bower components are placed inside the <code>public/vendor</code> directory, and you don't need to ask ExpressJS to serve them.</p>
-    </div>
-</div>
-    <div class="tip-hr"></div>
-
-    
-<div class="tip">
-    <h2 class="tip-title"><a href="/2014/09/best-jquery-practices.html">Best jQuery practices</a></h2>
-
-    <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
-
-    <ul class="tip-post-category">
-    
-        <li>jquery</li>
-    
-    </ul>
-
-    <div class="tip-separator">
-        <span>09 September 2014</span>
-    </div>
-
-    <div class="tip-content">
-        <p>This post introduces best jQuery practices you should follow:</p>
-
-<h3>Loading from CDN</h3>
-<p>Instead of storing jQuery on your server, choose to load it from popular CDNs. It will decrease the page loading time.</p>
-<pre><code class="xml">&lt;!-- Don't -->
-&lt;script src="/vendor/jquery/jquery.min.js">&lt;/script>
-
-&lt;!-- Do -->
-&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script></code></pre>
-
-<p>Below is the list of popular CDNs which you can find jQuery on:</p>
-<ul>
-    <li><a href="https://developers.google.com/speed/libraries/devguide#jquery">Google CDN</a></li>
-    <li><a href="http://www.asp.net/ajax/cdn#jQuery_Releases_on_the_CDN_0">Microsoft CDN</a></li>
-    <li><a href="http://jquery.com/download/#jquery-39-s-cdn-provided-by-maxcdn">jQuery CDN</a></li>
-    <li><a href="http://cdnjs.com/libraries/jquery/">CDNJS CDN</a></li>
-    <li><a href="http://www.jsdelivr.com/#!jquery">jsDelivr CDN</a></li>
-</ul>
-
-<p>There are some good practices, not only for jQuery, but also for other CSS, JS libraries when loading them from CDN:</p>
-
-<p><strong>Provide a fallback version in your server if loading from CDN fails</strong></p>
-<pre><code>&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
-&lt;script>window.jQuery || document.write("&lt;script src='/vendor/jquery/jquery.min.js'>\x3C/script>");&lt;/script></code></pre>
-
-<p><strong>Choosing the compressed version</strong></p>
-<pre><code class="xml">&lt;!-- Don't -->
-&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js">&lt;/script>
-
-&lt;!-- Do -->
-&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script></code></pre>
-
-<p><strong>Placing the script at the bottom of page</strong></p>
-<pre><code class="xml">&lt;!doctype html>
-&lt;head>
-    ...
-    &lt;!-- Don't -->
-    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
-&lt;/head>
-&lt;body>
-    ...
-    &lt;!-- Do -->
-    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
-&lt;/body>
-...</code></pre>
-
-<p><strong>Using protocol-relative URL</strong></p>
-<p>Leaving http: or https: out of the URL. By doing this, the browser will choose to load the https URL of script if your page is severed under https.</p>
-<pre><code class="xml">&lt;!-- Don't -->
-&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script>
-
-&lt;!-- Do -->
-&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">&lt;/script></code></pre>
-
-<h3>Shorthand for the ready event</h3>
-<pre><code class="javascript">// Usual way
-$(document).ready(function() {
-    ...
-});
-
-// The shorthand
-$(function() {
-
-});</code></pre>
-
-<h3>Naming jQuery object starting with $</h3>
-<p>With this naming convention, we can know whether or not a variable is a jQuery object.</p>
-<pre><code class="javascript">// Don't
-var form = $('#contactForm');
-
-// Do
-var $form = $('#contactForm');</code></pre>
-
-<h3>Using $this</h3>
-<p>Use $this variable at the beginning anonymous functions, for example, inside an each loop:</p>
-<pre><code class="javascript">// Don't
-$('li').each(function() {
-    $(this).on('click', function() {
-        $(this).addClass('active');
-    });
-});
-
-// Do
-$('li').each(function() {
-    var $this = $(this);
-    $this.on('click', function() {
-        $this.addClass('active');
-    });
-});</code></pre>
-
-<p>Someone prefer to use that or self. Don't forget to prefix with $ if it's jQuery object.</p>
-
-<h3>Caching jQuery objects</h3>
-<p>If a jQuery object is used multiple times, caching it will save the performance of script.</p>
-<pre><code class="javascript">// Don't
-$('.menu li').each(function() { ... });
-$('.menu li').each(function() { ... });
-
-// Do
-var $items = $('.menu li');
-$items.each(function() { ... });
-
-// Reuse it
-$items.each(function() { ... });</code></pre>
-
-<h3>Chaining method</h3>
-<p>Chaining method is one of most powerful features of jQuery. It allows us to call multiple methods at the same time.</p>
-<blockquote>"Write less, do more", the jQuery's slogan, is perfectly right in this case</blockquote>
-<pre><code class="javascript">// Don't
-var $a = $('#about');
-$a.hide();
-$a.addClass();
-$a.fadeIn();
-$a.hide();
-
-// Do
-$('#about').hide().addClass().fadeIn().hide();
-
-// Better
-// Add line-break and indent for readability
-$('#about')
-    .hide()
-    .addClass()
-    .fadeIn()
-    .hide();</code></pre>
-
-<h3>Creating new element</h3>
-<p>When creating new element, try to use jQuery methods to manipulate the element instead of giving full HTML code.</p>
-<pre><code class="javascript">// Don't
-var $hidden = $('&lt;input class="form-control" type="hidden" name="foo" value="bar" />').appendTo('#form');
-
-// Do
-var $hidden = $('&lt;input/>')
-                .addClass('form-control')
-                .attr('type', 'hidden')
-                .attr('name', 'foo')
-                .val('bar')
-                .appendTo('#form');
-                    
-// Or
-var $hidden = $('&lt;input/>', {
-                    class: 'form-control',
-                    type: 'hidden',
-                    name: 'foo',
-                    value: 'bar'
-                }).appendTo('#form');</code></pre>
-
-<h3>Don't mix CSS with jQuery</h3>
-<p>Don't set the CSS styles for element directly. Using CSS class instead.</p>
-<pre><code class="javascript">// Don't
-$('#button').css({
-    'background-color': '#5cb85c',
-    'border-color': '#4cae4c'
-});
-
-// Do
-.success {
-    background-color: #5cb85c;
-    border-color: #4cae4c;
-}
-$('#button').addClass('success');</code></pre>
-
-<h3>Optimizing selectors</h3>
-
-<p><strong>Using ID selector</strong></p>
-<p>To retrieve the element by given ID, jQuery uses native document.getElementById() method which is faster than using Sizzle.</p>
-<blockquote><a href="https://github.com/jquery/sizzle">Sizzle</a> is a pure-JavaScript CSS selector engine used by jQuery</blockquote>
-<pre><code class="javascript">// Don't
-$('#wrapper #inner');
-$('div#inner');
-$('.wrapper #inner');
-
-// Do
-$('#inner');</code></pre>
-
-<p><strong>Using ID-based selector</strong></p>
-<pre><code class="javascript">// Don't
-$('#container .row');
-
-// Faster
-$('#container').find('.row');</code></pre>
-
-<p><strong>Specificity</strong></p>
-<p>Be specific on the right-hand side of your selector, and less specific on the left.</p>
-<pre><code class="javascript">// Unoptimized
-$('div.data .gonzalez');
-
-// Optimized
-$('.data td.gonzalez');</code></pre>
-
-<p><strong>Avoid the universal selectors</strong></p>
-<pre><code class="javascript">// Slow
-$('div.container > *');
-
-// Faster
-$('.container').children();</code></pre>
-
-<p><strong>Avoid implied universal selectors</strong></p>
-<p>It's recommended to prefix a pseudo-class selectors (beginning with :) with a tag name or other selector. Otherwise, the universal selector (*) is still implied.</p>
-<pre><code class="javascript">// Don't
-$('.category :radio');
-
-// Do
-$('.category input:radio');</code></pre>
-
-<p><strong>Using filtering methods instead of pseudo selectors</strong></p>
-<p>When possible, use jQuery filter method instead of pseudo selectors. jQuery then uses querySelectorAll method which is faster than using Sizzle methods.</p>
-<pre><code class="javascript">// Don't
-$('.item:first')
-
-// Do
-$('.item').eq(0)</code></pre>
-
-<h3>Don't use JS inline to bind events</h3>
-<p>Always using jQuery to bind events:</p>
-<pre><code class="javascript">&lt;!-- Don't -->
-&lt;button id="saveButton" onclick="javascript: save();">Save&lt;/button>
-
-// Do
-$('#saveButton').on('click', function() {
-    ...
-});</code></pre>
-
-<h3>Using custom namespace for events</h3>
-<p>By using custom namespace, you can easily unbind the exact event without affecting to other event handlers which are bound to the element.</p>
-<pre><code class="javascript">$('#saveButton').on('click.bv', function() { ... });
-
-// Later, it's possible to unbind the event handler
-$('#saveButton').off('click.bv');</code></pre>
-
-<h3>Don't put all parameters in Ajax URL</h3>
-<p>When sending data to remote URL using an Ajax request, use data option to send them instead of putting in the URL.</p>
-<pre><code class="javascript">// Don't
-$.ajax({
-    url: '/remote/url?param1=value1&amp;param2=value2...'
-}});
-
-// Do
-$.ajax({
-    url: '/remote/url',
-    data: {
-        param1: 'value1',
-        param2: 'value2'
-        ...
-    }
-});</code></pre>
-
-<p>In the case the parameter might be too long (the article's content, for example), consider to use the POST method for both Ajax requests and the back-end.</p>
-<blockquote>Internet Explorer 8 (and earlier) <a href="http://support.microsoft.com/kb/208427">limits</a> 2083 characters in URL</blockquote>
-
-<h3>References</h3>
-<ul>
-    <li><a href="http://learn.jquery.com/performance/optimize-selectors/">Optimize selectors</a></li>
-</ul>
-
     </div>
 </div>
     <div class="tip-hr"></div>
