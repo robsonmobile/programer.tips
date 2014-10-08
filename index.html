@@ -131,9 +131,7 @@
     class="video-js vjs-default-skin vjs-big-play-centered"
     controls
     preload="auto"
-    width="740"
-    height="600"
-    data-setup="{}"
+    data-setup='{ "width": 740, "height": 600 }'
     poster="https://s3.amazonaws.com/programertips/2014/09/inspecting-tooltip-element.png">
     <source src="https://s3.amazonaws.com/programertips/2014/09/inspecting-tooltip-element.mp4" type="video/mp4" />
 </video>
@@ -178,9 +176,7 @@
 <video class="video-js vjs-default-skin vjs-big-play-centered"
     controls
     preload="auto"
-    width="740"
-    height="600"
-    data-setup="{}"
+    data-setup='{ "width": 740, "height": 600 }'
     poster="https://s3.amazonaws.com/programertips/2014/09/inspecting-given-element.png">
     <source src="https://s3.amazonaws.com/programertips/2014/09/inspecting-given-element.mp4" type="video/mp4" />
 </video>
@@ -234,9 +230,7 @@
 <video class="video-js vjs-default-skin vjs-big-play-centered"
     controls
     preload="auto"
-    width="578"
-    height="396"
-    data-setup="{}"
+    data-setup='{ "width": 578, "height": 396 }'
     poster="https://s3.amazonaws.com/programertips/2014/09/moving-cursor.png">
     <source src="https://s3.amazonaws.com/programertips/2014/09/moving-cursor.mp4" type="video/mp4" />
 </video>
@@ -677,8 +671,9 @@ $(function() {
 
     // Adjust the size of video elements
     $('.video-js').each(function() {
-        var $video = $(this),
-            aspect = $video.attr('height') / $video.attr('width');
+        var $video  = $(this),
+            options = $.parseJSON($video.attr('data-setup')),
+            aspect  = options.height / options.width;
 
         videojs($video.get(0)).ready(function() {
             var $container = $(this.el());
