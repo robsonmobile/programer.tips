@@ -113,7 +113,7 @@ iframe {
   padding: 15px 0;
   form {
     margin: 0 auto;
-    width: 350px;
+    width: 280px;
     text-align: center;
   }
   button {
@@ -241,6 +241,15 @@ iframe {
   }
 }
 
+.tip-video-wrapper {
+  width: 80%;
+  margin: 0px auto;
+}
+.tip-video-container {
+  width: 100%;
+  height: auto;
+}
+
 .tip-contributors {
   border-top: 1px solid #eee;
   padding: 0;
@@ -366,4 +375,28 @@ iframe {
     0% { opacity: 1.0; }
     50% { opacity: 0.0; }
     100% { opacity: 1.0; }
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .tip-heading {
+    h1 {
+      font-size: 30px;
+      line-height: 50px;
+    }
+    span {
+      font-size: 30px;
+      line-height: 50px;
+    }
+  }
+}
+@media (max-width: 991px) {
+  #carbonads {
+    visibility: hidden;
+  }
+}
+@media (min-width: 992px) {
+  #carbonads {
+    visibility: visible;
+  }
 }

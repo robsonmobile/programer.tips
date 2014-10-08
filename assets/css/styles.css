@@ -102,7 +102,7 @@ iframe {
 }
 .tip-subscribe form {
   margin: 0 auto;
-  width: 350px;
+  width: 280px;
   text-align: center;
 }
 .tip-subscribe button {
@@ -217,6 +217,14 @@ iframe {
   max-width: 100%;
   margin: 20px 0;
   padding: 4px;
+}
+.tip-video-wrapper {
+  width: 80%;
+  margin: 0px auto;
+}
+.tip-video-container {
+  width: 100%;
+  height: auto;
 }
 .tip-contributors {
   border-top: 1px solid #eee;
@@ -351,5 +359,26 @@ iframe {
   }
   100% {
     opacity: 1.0;
+  }
+}
+/* Responsive */
+@media (max-width: 767px) {
+  .tip-heading h1 {
+    font-size: 30px;
+    line-height: 50px;
+  }
+  .tip-heading span {
+    font-size: 30px;
+    line-height: 50px;
+  }
+}
+@media (max-width: 991px) {
+  #carbonads {
+    visibility: hidden;
+  }
+}
+@media (min-width: 992px) {
+  #carbonads {
+    visibility: visible;
   }
 }
