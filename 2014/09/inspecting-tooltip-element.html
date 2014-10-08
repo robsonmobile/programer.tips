@@ -281,6 +281,7 @@ $(function() {
             var $container = $(this.el());
             $(window).on('resize.video', function() {
                 var width = $container.parent().width();
+                console.log($container, width, width * aspect);
                 $container.width(width).height(width * aspect);
             }).trigger('resize.video');
         });
