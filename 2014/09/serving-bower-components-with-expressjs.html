@@ -6,8 +6,8 @@
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Daily tips and tricks for programmer">
-    <meta name="keywords" content="programmer tips, tricks">
+    <meta name="description" content="Daily tips, tricks, best practices for programmer">
+    <meta name="keywords" content="programmer tips, tricks, best pratices, meo lap trinh">
     <meta name="author" content="Phuoc Nguyen">
 
     
@@ -48,11 +48,11 @@
         <div class="tip-heading">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
+                    <div class="col-xs-12 col-md-8 col-md-offset-2">
                         <h1>
                             <a href="/">Daily <span id="slogan">tips</span><span class="tip-cursor"></span> <br/>for <span>programmers</span></a>
                         </h1>
-                        <p>by <a href="https://twitter.com/nghuuphuoc">@nghuuphuoc</a> and contributors</p>
+                        <p>by <a href="https://twitter.com/nghuuphuoc">@nghuuphuoc</a></p>
                         <div class="tip-nav">
                             <ul>
                                 <li><a href="https://twitter.com/programertips" title="Follow @programertips"><i class="fa fa-twitter"></i></a></li>
@@ -81,7 +81,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
                 <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=programertips" id="_carbonads_js"></script>
                 <div class="tip">
     <h2 class="tip-title"><a href="">Serving Bower components with ExpressJS</a></h2>
@@ -209,7 +209,7 @@ $(function() {
     <div class="tip-footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-xs-12">
                     <ul>
                         <li><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=nghuuphuoc&repo=programer.tips&type=watch&count=true" width="100" height="20" title="Star on GitHub"></iframe></li>
                         <li><a href="https://twitter.com/programertips" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @programertips</a></li>
@@ -267,9 +267,26 @@ $(function() {
             }
         };
 
-    setTimeout(function() {
-        animate();
-    }, 1500);
+    // Don't animate the header in smaller screens
+    if ($(window).width() >= 768) {
+        setTimeout(function () {
+            animate();
+        }, 1500);
+    }
+
+    // Adjust the size of video elements
+    $('.video-js').each(function() {
+        var $video = $(this),
+            aspect = $video.attr('height') / $video.attr('width');
+
+        videojs($video.get(0)).ready(function() {
+            var $container = $(this.el());
+            $(window).on('resize.video', function() {
+                var width = $container.parent().width();
+                $container.width(width).height(width * aspect);
+            }).trigger('resize.video');
+        });
+    });
 });
 </script>
 </body>
