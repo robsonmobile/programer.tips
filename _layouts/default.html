@@ -158,8 +158,9 @@ $(function() {
 
     // Adjust the size of video elements
     $('.video-js').each(function() {
-        var $video = $(this),
-            aspect = $video.attr('height') / $video.attr('width');
+        var $video  = $(this),
+            options = $.parseJSON($video.attr('data-setup')),
+            aspect  = options.height / options.width;
 
         videojs($video.get(0)).ready(function() {
             var $container = $(this.el());
