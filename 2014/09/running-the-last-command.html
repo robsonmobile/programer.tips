@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Opening given folder in the MacOS Terminal &middot; Programmer Tips</title>
+    <title>Running the last command &middot; Programmer Tips</title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -84,7 +84,7 @@
             <div class="col-xs-12 col-md-8 col-md-offset-2">
                 <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=programertips" id="_carbonads_js"></script>
                 <div class="tip">
-    <h2 class="tip-title"><a href="">Opening given folder in the MacOS Terminal</a></h2>
+    <h2 class="tip-title"><a href="">Running the last command</a></h2>
 
     <p class="tip-avatar"><img src="http://github.com/nghuuphuoc.png" /></p>
 
@@ -95,54 +95,23 @@
     </ul>
 
     <div class="tip-separator">
-        <span>14 September 2014</span>
+        <span>15 September 2014</span>
     </div>
 
     <div class="text-center">
-        <a href="https://github.com/nghuuphuoc/programer.tips/blob/master/_posts/2014/09/2014-09-14-opening-given-folder-in-macos-terminal.html" class="btn tip-btn-edit">Improve it on Github</a>
+        <a href="https://github.com/nghuuphuoc/programer.tips/blob/master/_posts/2014/09/2014-09-15-running-the-last-command.html" class="btn tip-btn-edit">Improve it on Github</a>
     </div>
 
     <div class="tip-content">
-        <p>No matter who you are, a developer, database administrator or system engineer, Terminal might be one of the tools you've been working with most.</p>
-<p>For example, to the front-end developers, we usually need to run the building <a href="http://gruntjs.com">GruntJS</a> or <a href="http://gulpjs.com">GulpJS</a> scripts, start an <a href="http://expressjs.com">ExpressJS</a> application right from the Terminal.</p>
-<p>These tasks have a common starting point which is to be executed from given directory.</p>
+        <p>When working with the Terminal, you might know to use the <kbd>top arrow</kbd> key to switch to the previous command.</p>
+<p>The following command does the same thing:</p>
+<pre><code class="bash">!!</code></pre>
 
-<p>Today, I will show you two quick ways to open particular directory in the MacOS Terminal without using any additional software, scripts or workflow.</p>
+<p>It's very useful when you need to run the previous command which asks for administrator privilege, as seen in the image below:</p>
+<pre><code class="bash">sudo !!</code></pre>
 
-<h3>Adding the New Termnial at Folder menu</h3>
-<ul>
-    <li>Open the <strong>System Preferences</strong></li>
-    <li>Click the <strong>Keyboard</strong>, and choose the <strong>Shortcuts</strong> tab</li>
-    <li>Choose <strong>Services</strong> from the left, and then enable the <strong>New Terminal at Folder</strong> option from the right</li>
-</ul>
-
-<p>You also can click <strong>add shortcut</strong> button to define the shortcut.</p>
 <p class="text-center">
-    <img src="https://s3.amazonaws.com/programertips/2014/09/new-terminal-folder.png" alt="Enable New Termnial at Folder menu" />
-</p>
-
-<p>From now on, in order to open a folder in Terminal, just right-click the folder, and choose <strong>Service</strong> &rarr; <strong>New Terminal at Folder</strong> from the context menu.</p>
-
-<h3>Dragging the folder into the Terminal</h3>
-<p>This way is more convenient than the first one. Just hold down the <kbd>command</kbd> key and drag the folder into the Terminal. That's all. How easy it is!</p>
-
-<video
-    class="video-js vjs-default-skin vjs-big-play-centered"
-    controls
-    preload="auto"
-    data-setup='{ "width": 746, "height": 546 }'
-    poster="https://s3.amazonaws.com/programertips/2014/09/dragging-folder-terminal.png">
-    <source src="https://s3.amazonaws.com/programertips/2014/09/dragging-folder-terminal.mp4" type="video/mp4" />
-</video>
-
-<p>By doing this, you don't even to worry if the path to folder consists of spaces. The system automatically add \ characters to quote the path for you.</p>
-<p>For instance, dragging <code>/Library/Application Support/App Store</code> into the Terminal will execute the command:</p>
-<pre><code>$ cd /Library/Application\ Support/App\ Store</code></pre>
-
-<h3>What about Windows?</h3>
-<p>On Windows, the job can be done easily by holding down the <kbd>Shift</kbd> key, right-click the folder, and choose <strong>Open command window here</strong> from the context menu.</p>
-<p class="text-center">
-    <img src="https://s3.amazonaws.com/programertips/2014/09/open-command-window-here.png" alt="Open command window here" />
+    <img src="https://s3.amazonaws.com/programertips/2014/09/running-last-command.png" alt="Running the last command" />
 </p>
     </div>
 </div>
@@ -154,18 +123,18 @@
 
 
 <ul class="tip-sharing">
-    <li><iframe src="//www.facebook.com/plugins/like.php?href=http://programer.tips/2014/09/opening-given-folder-in-macos-terminal.html&send=false&layout=button_count&width=100&show_faces=false&action=like&colorscheme=light&font&height=21" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 100px; height: 21px;" allowTransparency="true"></iframe></li>
+    <li><iframe src="//www.facebook.com/plugins/like.php?href=http://programer.tips/2014/09/running-the-last-command.html&send=false&layout=button_count&width=100&show_faces=false&action=like&colorscheme=light&font&height=21" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 100px; height: 21px;" allowTransparency="true"></iframe></li>
     <li><a class="twitter-share-button" href="https://twitter.com/share" data-via="programertips">Tweet</a></li>
     <li><div class="g-plus" data-action="share" data-annotation="bubble"></div></li>
 </ul>
 
 <div class="tip-pagination">
     
-        <a href="/2014/09/inspecting-tooltip-element.html" class="tip-pagination-older" title="Inspecting tooltip element">Previous</a>
+        <a href="/2014/09/opening-given-folder-in-macos-terminal.html" class="tip-pagination-older" title="Opening given folder in the MacOS Terminal">Previous</a>
     
 
     
-        <a href="/2014/09/running-the-last-command.html" class="tip-pagination-newer" title="Running the last command">Next</a>
+        <span class="tip-pagination-newer">Next</span>
     
 </div>
 <div class="clearfix"></div>
